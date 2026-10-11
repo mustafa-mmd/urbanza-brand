@@ -405,9 +405,10 @@ nav#main-nav.hidden {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 6vw;
+  padding: clamp(24px, 6vw, 64px);
   clip-path: inset(0);
-  transition: clip-path 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: clip-path 0.85s cubic-bezier(0.85, 0, 0.15, 1);
+  overflow: hidden;
 }
 
 #preloader.done {
@@ -415,13 +416,38 @@ nav#main-nav.hidden {
   pointer-events: none;
 }
 
+#preloader .preloader-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 #preloader .dsp {
-  font-size: clamp(48px, 14vw, 180px);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(38px, 8.5vw, 130px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  width: 100%;
+}
+
+#preloader .preloader-sub {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(11px, 1.4vw, 16px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-top: 6px;
 }
 
 #preloader-num {
-  font: 800 clamp(44px, 8vw, 120px)/1 var(--font-display);
+  font: 800 clamp(40px, 7vw, 110px)/1 var(--font-display);
   align-self: flex-end;
+  letter-spacing: -0.04em;
 }
 
 /* Custom Interactive Cursor (desktop only) */
@@ -2136,7 +2162,10 @@ footer {
 
 <!-- Preloader -->
 <div id="preloader">
-  <div class="dsp">URBANZA</div>
+  <div class="preloader-brand">
+    <div class="dsp">URBANZA</div>
+    <div class="preloader-sub">London Luxury Streetwear &middot; Est. 2024</div>
+  </div>
   <div id="preloader-num">0%</div>
 </div>
 
