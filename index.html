@@ -1,0 +1,4735 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>URBANZA | London Luxury Streetwear Footwear</title>
+<meta name="description" content="URBANZA — Next-generation London streetwear sneakers. Engineered for the pavement, priced for everyone. Free UK next-day delivery over £75.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   URBANZA PRO DESIGN SYSTEM & TOKENS
+   ========================================================================== */
+:root {
+  --bg: #09090b;
+  --bg-subtle: #121215;
+  --fg: #f5f5f0;
+  --fg-muted: #8e8e93;
+  --ac: #c6ff00; /* Volt Neon Lime */
+  --ac-glow: rgba(198, 255, 0, 0.35);
+  --ac-text: #09090b;
+  --surface: #17171c;
+  --surface-hover: #202027;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --danger: #ff453a;
+  --success: #32d74b;
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --shadow-sm: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 35px var(--ac-glow);
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 9999px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+:root[data-theme="light"] {
+  --bg: #f8f8f5;
+  --bg-subtle: #f0f0eb;
+  --fg: #0d0d11;
+  --fg-muted: #686870;
+  --ac: #658c00;
+  --ac-glow: rgba(101, 140, 0, 0.25);
+  --ac-text: #ffffff;
+  --surface: #ffffff;
+  --surface-hover: #f3f3ee;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --shadow-sm: 0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,0.1);
+  --shadow-glow: 0 0 30px rgba(101, 140, 0, 0.25);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(80px + var(--safe-top));
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  padding-bottom: var(--safe-bottom);
+}
+
+/* Subtle Film Grain Texture Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, .dsp {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   UTILITY & BUTTON COMPONENTS
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 48px);
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--ac);
+  color: var(--ac-text);
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, background 0.3s ease;
+  white-space: nowrap;
+}
+
+.pill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--ac-glow);
+}
+
+.pill-btn.secondary {
+  background: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--border-strong);
+}
+
+.pill-btn.secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--fg);
+  box-shadow: var(--shadow-sm);
+}
+
+.pill-btn.outline {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--border);
+}
+
+.pill-btn.outline:hover {
+  border-color: var(--ac);
+  color: var(--ac);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.icon-btn:hover {
+  border-color: var(--fg);
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--ac);
+  color: var(--ac-text);
+  font-size: 10px;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+/* ==========================================================================
+   NAVIGATION & HEADER
+   ========================================================================== */
+#announcement-bar {
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  overflow: hidden;
+  position: relative;
+  z-index: 105;
+  border-bottom: 1px solid var(--border);
+}
+
+#announcement-bar .marquee-content {
+  display: flex;
+  white-space: nowrap;
+  gap: 3rem;
+  animation: announcementSlide 30s linear infinite;
+}
+
+@keyframes announcementSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+nav#main-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: calc(14px + var(--safe-top)) clamp(16px, 4vw, 48px) 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border-bottom: 1px solid var(--border);
+  transition: transform 0.4s ease, background 0.3s ease;
+}
+
+nav#main-nav.hidden {
+  transform: translateY(-110%);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.nav-brand .dsp {
+  font-size: clamp(22px, 3vw, 28px);
+  letter-spacing: -0.04em;
+}
+
+.nav-brand .tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--ac);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(14px, 2vw, 30px);
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg-muted);
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--fg);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: var(--ac);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.2vw, 16px);
+}
+
+.currency-select {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+.currency-select option {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+#mobile-menu-btn {
+  display: none;
+}
+
+/* Mobile Bottom Navigation Dock */
+#mobile-dock {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 95;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  padding: 8px 16px calc(8px + var(--safe-bottom));
+  justify-content: space-around;
+  align-items: center;
+}
+
+#mobile-dock button, #mobile-dock a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg-muted);
+  position: relative;
+  padding: 4px 8px;
+}
+
+#mobile-dock button.active, #mobile-dock a.active {
+  color: var(--ac);
+}
+
+#mobile-dock svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================================================
+   PROGRESS BAR & PRELOADER
+   ========================================================================== */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--ac);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 120;
+}
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: var(--ac);
+  color: #09090b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6vw;
+  clip-path: inset(0);
+  transition: clip-path 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+#preloader.done {
+  clip-path: inset(0 0 100% 0);
+  pointer-events: none;
+}
+
+#preloader .dsp {
+  font-size: clamp(48px, 14vw, 180px);
+}
+
+#preloader-num {
+  font: 800 clamp(44px, 8vw, 120px)/1 var(--font-display);
+  align-self: flex-end;
+}
+
+/* Custom Interactive Cursor (desktop only) */
+#cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ac);
+  pointer-events: none;
+  z-index: 950;
+  display: grid;
+  place-items: center;
+  font: 800 11px var(--font-display);
+  color: #09090b;
+  transition: width 0.25s, height 0.25s, transform 0.1s ease-out;
+}
+
+#cursor.big {
+  width: 80px;
+  height: 80px;
+  background: var(--fg);
+  color: var(--bg);
+}
+
+#cursor::after {
+  content: attr(data-label);
+}
+
+@media (hover: none) {
+  #cursor { display: none; }
+}
+
+/* ==========================================================================
+   VIEW CONTAINERS (ROUTER)
+   ========================================================================== */
+.view-section {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.view-section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   HERO 3D SHOWCASE SECTION
+   ========================================================================== */
+#hero {
+  position: relative;
+  min-height: calc(100svh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 40px clamp(16px, 4vw, 48px);
+}
+
+.hero-backdrop-title {
+  position: absolute;
+  top: 42%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  font-size: clamp(48px, 14vw, 210px);
+  color: transparent;
+  -webkit-text-stroke: clamp(1px, 0.15vw, 2px) var(--fg);
+  opacity: 0.75;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  letter-spacing: -0.04em;
+  z-index: 2;
+}
+
+#hero-stage {
+  position: relative;
+  z-index: 3;
+  width: min(92vw, 860px);
+  height: min(52svh, 460px);
+  display: grid;
+  place-items: center;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#hero-stage:active {
+  cursor: grabbing;
+}
+
+#hero-tilt {
+  position: relative;
+  will-change: transform;
+  transform-style: preserve-3d;
+  display: grid;
+  place-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#hero-img {
+  width: min(88vw, 760px);
+  max-height: 48svh;
+  object-fit: contain;
+  filter: drop-shadow(0 40px 35px rgba(0,0,0,0.65));
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  transition: filter 0.4s ease;
+}
+
+#hero-glow {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  width: min(70vw, 620px);
+  height: 90px;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, var(--ac), transparent);
+  opacity: 0.45;
+  filter: blur(28px);
+  pointer-events: none;
+  transition: background 0.6s ease;
+}
+
+/* Interactive Sneaker Hotspots */
+.hotspot {
+  position: absolute;
+  z-index: 5;
+  transition: opacity 0.4s ease;
+}
+
+.hotspot .pin {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--ac);
+  color: #09090b;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 900;
+  box-shadow: 0 0 0 0 var(--ac);
+  animation: pulseBeacon 2s infinite;
+  cursor: pointer;
+}
+
+@keyframes pulseBeacon {
+  70% { box-shadow: 0 0 0 16px transparent; }
+}
+
+.hotspot-card {
+  position: absolute;
+  left: -20px;
+  top: 30px;
+  width: 240px;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hotspot:hover .hotspot-card, .hotspot.active .hotspot-card {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.hotspot-card h4 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.hotspot-card p {
+  color: var(--fg-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.hero-bottom-bar {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  z-index: 4;
+  margin-top: 24px;
+}
+
+.hero-bottom-bar p {
+  max-width: 360px;
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+
+.colorway-picker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+}
+
+.colorway-picker span {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.color-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.color-dots button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--dot-color);
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.color-dots button.active, .color-dots button:hover {
+  transform: scale(1.3);
+  border-color: var(--fg);
+  box-shadow: 0 0 10px var(--dot-color);
+}
+
+/* ==========================================================================
+   MARQUEE BANNER
+   ========================================================================== */
+.marquee-wrapper {
+  overflow: hidden;
+  border-block: 2px solid rgba(0, 0, 0, 0.12);
+  padding: clamp(22px, 3.2vw, 38px) 0;
+  background: var(--ac);
+  color: #09090b;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(22px, 3.8vw, 48px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  will-change: transform;
+  animation: marqueeScroll 24s linear infinite;
+}
+
+.marquee-track span {
+  padding-right: 1.8em;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.8em;
+  line-height: 1.25;
+}
+
+.marquee-track span::after {
+  content: "★";
+  font-size: 0.55em;
+  opacity: 0.6;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   PRODUCT CARD & GRIDS
+   ========================================================================== */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.section-header h2 {
+  font-size: clamp(34px, 6vw, 76px);
+}
+
+.section-header p {
+  color: var(--fg-muted);
+  max-width: 420px;
+  font-size: 15px;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+
+.category-tabs::-webkit-scrollbar { display: none; }
+
+.tab-pill {
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-muted);
+  white-space: nowrap;
+  transition: all 0.25s;
+}
+
+.tab-pill:hover, .tab-pill.active {
+  background: var(--surface);
+  color: var(--fg);
+  border-color: var(--fg);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: clamp(16px, 2.5vw, 32px);
+}
+
+.product-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-image-container {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  background: var(--bg-subtle);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.product-img-primary,
+.product-img-secondary {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
+  filter: drop-shadow(0 10px 16px rgba(0,0,0,0.3));
+}
+
+.product-img-primary {
+  opacity: 1;
+  z-index: 1;
+}
+
+.product-img-secondary {
+  position: absolute;
+  inset: 5%;
+  width: 90%;
+  height: 90%;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  z-index: 2;
+}
+
+.product-card:hover .product-img-primary {
+  opacity: 0;
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.product-card:hover .product-img-secondary {
+  opacity: 1;
+  transform: scale(1.06) rotate(1.5deg);
+  filter: drop-shadow(0 24px 30px rgba(0,0,0,0.55));
+}
+
+.product-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--ac);
+  color: var(--ac-text);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
+
+.product-wishlist-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  color: var(--fg);
+  z-index: 2;
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+
+.product-wishlist-btn:hover, .product-wishlist-btn.active {
+  color: #ff334b;
+  transform: scale(1.15);
+  background: #fff;
+}
+
+.quick-view-overlay-btn {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  z-index: 3;
+}
+
+.product-card:hover .quick-view-overlay-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.product-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-category-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.product-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.product-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: auto;
+  margin-bottom: 14px;
+}
+
+.current-price {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.original-price {
+  color: var(--fg-muted);
+  text-decoration: line-through;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.product-rating {
+  font-size: 12px;
+  color: var(--ac);
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.product-rating span {
+  color: var(--fg-muted);
+  font-weight: 500;
+}
+
+.card-quick-add {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.quick-size-select {
+  flex: 1;
+  background: var(--bg-subtle);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.card-add-btn {
+  background: var(--ac);
+  color: var(--ac-text);
+  border-radius: var(--radius-pill);
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 14px var(--ac-glow);
+}
+
+/* ==========================================================================
+   COLLECTIONS BENTO GRID
+   ========================================================================== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 260px;
+  gap: 18px;
+}
+
+.bento-item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid var(--border);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+}
+
+.bento-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9, 9, 11, 0.88) 15%, rgba(9, 9, 11, 0.3) 65%, transparent);
+  transition: opacity 0.3s;
+}
+
+.bento-item:hover {
+  transform: translateY(-4px);
+}
+
+.bento-item:hover::before {
+  opacity: 0.75;
+}
+
+.bento-content {
+  position: relative;
+  z-index: 2;
+}
+
+.bento-item h3 {
+  font-size: clamp(24px, 3.2vw, 44px);
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.bento-item p {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bento-item.span-2x2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.bento-item.span-2x1 {
+  grid-column: span 2;
+}
+
+/* ==========================================================================
+   CRAFT & 3D LAYER EXPLORER SECTION
+   ========================================================================== */
+.craft-container {
+  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--ac) 15%, transparent), var(--bg) 70%);
+  border-radius: 36px;
+  border: 1px solid var(--border);
+  padding: clamp(36px, 6vw, 80px) clamp(20px, 4vw, 60px);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.craft-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.craft-visual img {
+  width: 100%;
+  max-width: 620px;
+  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.5));
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.craft-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.craft-step-card {
+  background: color-mix(in srgb, var(--surface) 75%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.craft-step-card.active {
+  border-color: var(--ac);
+  background: var(--surface);
+  transform: translateX(8px);
+}
+
+.craft-step-card.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--ac);
+  border-radius: 4px 0 0 4px;
+}
+
+.craft-step-card h4 {
+  font-size: 19px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.craft-step-card p {
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+
+.craft-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.metric-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: center;
+}
+
+.metric-box b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--ac);
+}
+
+.metric-box span {
+  font-size: 11px;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   LOOKBOOK & SHOP THE LOOK HOTSPOTS
+   ========================================================================== */
+.lookbook-banner {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 480px;
+  border: 1px solid var(--border);
+}
+
+.lookbook-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lookbook-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9, 9, 11, 0.85) 10%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(24px, 4vw, 56px);
+}
+
+.lookbook-tag-pin {
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.lookbook-tag-pin .dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ac);
+  color: #09090b;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 14px;
+  box-shadow: 0 0 20px var(--ac);
+  animation: pulseBeacon 2s infinite;
+}
+
+.lookbook-tag-card {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  width: 220px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.lookbook-tag-pin:hover .lookbook-tag-card {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+
+.lookbook-tag-card img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.lookbook-tag-card h5 {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.lookbook-tag-card span {
+  font-size: 12px;
+  color: var(--ac);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   REVIEWS & TESTIMONIALS
+   ========================================================================== */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-stars {
+  color: var(--ac);
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.review-text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: var(--ac);
+}
+
+.author-meta b {
+  display: block;
+  font-size: 14px;
+}
+
+.author-meta span {
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+/* ==========================================================================
+   VIP NEWSLETTER SECTION
+   ========================================================================== */
+.newsletter-banner {
+  background: var(--ac);
+  color: #09090b;
+  border-radius: 36px;
+  padding: clamp(40px, 8vw, 80px) clamp(24px, 5vw, 60px);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-block: 60px;
+}
+
+.newsletter-banner h2 {
+  font-size: clamp(34px, 5vw, 72px);
+  color: #09090b;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 220px;
+  padding: 16px 24px;
+  border-radius: var(--radius-pill);
+  border: 2px solid #09090b;
+  background: transparent;
+  color: #09090b;
+  font-size: 15px;
+  font-weight: 600;
+  outline: none;
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(9, 9, 11, 0.6);
+}
+
+.newsletter-form button {
+  background: #09090b;
+  color: var(--ac);
+  border-radius: var(--radius-pill);
+  padding: 16px 32px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: transform 0.2s;
+}
+
+.newsletter-form button:hover {
+  transform: translateY(-2px);
+}
+
+.newsletter-success {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 80px clamp(16px, 4vw, 48px) 40px;
+  background: var(--bg-subtle);
+  color: var(--fg-muted);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.footer-brand .dsp {
+  font-size: 38px;
+  color: var(--fg);
+  margin-bottom: 12px;
+}
+
+.footer-col h5 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--fg);
+  margin-bottom: 20px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col a:hover {
+  color: var(--ac);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+}
+
+.payment-badges {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.payment-badge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+/* ==========================================================================
+   SHOP / CATALOG VIEW STYLING
+   ========================================================================== */
+.shop-header {
+  padding-block: 40px 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 30px;
+}
+
+.shop-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  min-width: 280px;
+  flex: 1;
+  max-width: 440px;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 10px 18px 10px 42px;
+  color: var(--fg);
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input-wrapper svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--fg-muted);
+}
+
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-select {
+  background: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ==========================================================================
+   SLIDE-OVER DRAWERS (BAG, WISHLIST, MOBILE NAV)
+   ========================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.drawer-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slide-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(100vw, 440px);
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  z-index: 210;
+  transform: translateX(105%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  padding: calc(20px + var(--safe-top)) 24px calc(24px + var(--safe-bottom));
+}
+
+.slide-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.drawer-header h3 {
+  font-size: 28px;
+}
+
+.free-shipping-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.free-shipping-bar {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-subtle);
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.free-shipping-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--ac);
+  transition: width 0.4s ease;
+}
+
+.drawer-items-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 4px;
+}
+
+.cart-item-card {
+  display: grid;
+  grid-template-columns: 74px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+
+.cart-item-card img {
+  width: 74px;
+  height: 74px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+.cart-item-details h4 {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.cart-item-details p {
+  color: var(--fg-muted);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 2px 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.drawer-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.promo-row {
+  display: flex;
+  gap: 8px;
+}
+
+.promo-row input {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 10px 16px;
+  color: var(--fg);
+  font-size: 13px;
+  outline: none;
+}
+
+.drawer-totals-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.drawer-totals-row.grand-total {
+  font-size: 20px;
+  font-weight: 800;
+  font-family: var(--font-display);
+}
+
+/* ==========================================================================
+   PRODUCT DETAIL PAGE OVERLAY (PDP)
+   ========================================================================== */
+#pdp-view {
+  position: fixed;
+  inset: 0;
+  z-index: 180;
+  background: var(--bg);
+  overflow-y: auto;
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s 0.5s;
+}
+
+#pdp-view.active {
+  transform: translateY(0);
+  visibility: visible;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.pdp-wrapper {
+  max-width: 1360px;
+  margin: auto;
+  padding: calc(30px + var(--safe-top)) clamp(16px, 4vw, 48px) 80px;
+}
+
+.pdp-breadcrumbs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--fg-muted);
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.pdp-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(30px, 5vw, 64px);
+  align-items: start;
+}
+
+.pdp-gallery {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+}
+
+.pdp-thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pdp-thumb-btn {
+  width: 90px;
+  height: 90px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  overflow: hidden;
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.pdp-thumb-btn.active, .pdp-thumb-btn:hover {
+  border-color: var(--ac);
+}
+
+.pdp-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pdp-main-image-stage {
+  aspect-ratio: 1 / 1.05;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.pdp-main-image-stage img {
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.pdp-details-info h1 {
+  font-size: clamp(32px, 4vw, 54px);
+  margin-block: 8px 12px;
+  line-height: 1.1;
+}
+
+.pdp-price-rating {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pdp-price-rating .pr {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.size-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-block: 12px 18px;
+}
+
+.size-pill-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 4px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.size-pill-btn small {
+  display: block;
+  font-size: 10px;
+  color: var(--fg-muted);
+  font-weight: 500;
+}
+
+.size-pill-btn:hover {
+  border-color: var(--fg);
+}
+
+.size-pill-btn.active {
+  background: var(--ac);
+  color: var(--ac-text);
+  border-color: var(--ac);
+}
+
+.size-pill-btn.active small {
+  color: var(--ac-text);
+}
+
+.pdp-actions-row {
+  display: flex;
+  gap: 12px;
+  margin-block: 20px;
+}
+
+.countdown-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.countdown-box b {
+  color: var(--ac);
+}
+
+/* ==========================================================================
+   CHECKOUT & CONFIRMATION MODALS
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  display: none;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal-overlay.open {
+  display: grid;
+}
+
+.modal-card {
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 32px;
+  padding: clamp(24px, 4vw, 40px);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.checkout-stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.step-indicator {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--fg-muted);
+}
+
+.step-indicator.active {
+  color: var(--ac);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full {
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--fg-muted);
+}
+
+.form-group input, .form-group select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  color: var(--fg);
+  font-size: 14px;
+  outline: none;
+}
+
+.payment-method-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pay-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pay-tab.active {
+  border-color: var(--ac);
+  background: var(--surface-hover);
+}
+
+/* ==========================================================================
+   ORDER TRACKING PAGE / DEMO
+   ========================================================================== */
+.tracking-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 36px;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.tracking-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  margin-block: 30px;
+  padding-left: 36px;
+}
+
+.tracking-timeline::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-step {
+  position: relative;
+}
+
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  z-index: 2;
+}
+
+.timeline-step.completed::before {
+  background: var(--ac);
+  border-color: var(--ac);
+}
+
+.timeline-step.active::before {
+  background: var(--ac);
+  box-shadow: 0 0 16px var(--ac);
+}
+
+/* ==========================================================================
+   STORE LOCATOR VIEW
+   ========================================================================== */
+.stores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.store-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.store-card h3 {
+  font-size: 22px;
+}
+
+/* ==========================================================================
+   RESPONSIVE QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-item.span-2x2 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .craft-container {
+    grid-template-columns: 1fr;
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pdp-grid {
+    grid-template-columns: 1fr;
+  }
+  .pdp-gallery {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  #mobile-menu-btn { display: flex; }
+  #mobile-dock { display: flex; }
+  body { padding-bottom: calc(64px + var(--safe-bottom)); }
+  .newsletter-banner {
+    grid-template-columns: 1fr;
+    padding: 36px 24px;
+  }
+  .hero-backdrop-title {
+    font-size: clamp(40px, 16vw, 100px);
+  }
+  #hero-stage {
+    width: 96vw;
+    height: 380px;
+  }
+  .pdp-gallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .pdp-thumbnails {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .pdp-thumbnails::-webkit-scrollbar {
+    display: none;
+  }
+  .pdp-thumb-btn {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+  }
+  .pdp-wrapper {
+    padding: calc(18px + var(--safe-top)) clamp(14px, 3vw, 24px) 80px;
+  }
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-item.span-2x1, .bento-item.span-2x2 {
+    grid-column: span 1;
+  }
+  .craft-metrics {
+    grid-template-columns: 1fr;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-group.full {
+    grid-column: span 1;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="dsp">URBANZA</div>
+  <div id="preloader-num">0%</div>
+</div>
+
+<!-- Scroll Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+
+<!-- Top Announcement Banner -->
+<div id="announcement-bar">
+  <div class="marquee-content">
+    <span>⚡ LONDON FASHION WEEK DROP IS LIVE</span>
+    <span>• FREE UK NEXT-DAY DELIVERY OVER £75</span>
+    <span>• 30-DAY HASSLE-FREE RETURNS</span>
+    <span>• VISIT OUR SOHO & SHOREDITCH FLAGSHIPS</span>
+    <span>⚡ LONDON FASHION WEEK DROP IS LIVE</span>
+    <span>• FREE UK NEXT-DAY DELIVERY OVER £75</span>
+    <span>• 30-DAY HASSLE-FREE RETURNS</span>
+  </div>
+</div>
+
+<!-- Main Sticky Header -->
+<nav id="main-nav">
+  <a class="nav-brand" href="#/">
+    <span class="dsp">URBANZA</span>
+    <span class="tag">LDN</span>
+  </a>
+
+  <div class="nav-links">
+    <a href="#/" class="nav-link active" data-route="home">Home</a>
+    <a href="#/shop" class="nav-link" data-route="shop">Shop All</a>
+    <a href="#/collections" class="nav-link" data-route="collections">Collections</a>
+    <a href="#/lookbook" class="nav-link" data-route="lookbook">Lookbook</a>
+    <a href="#/craft" class="nav-link" data-route="craft">Craft & Tech</a>
+    <a href="#/stores" class="nav-link" data-route="stores">Stores</a>
+    <a href="#/track-order" class="nav-link" data-route="track-order">Track Order</a>
+    <a href="#/about" class="nav-link" data-route="about">About</a>
+  </div>
+
+  <div class="nav-actions">
+    <!-- Currency Selector -->
+    <select id="currency-select" class="currency-select" aria-label="Select Currency">
+      <option value="GBP" selected>£ GBP</option>
+      <option value="EUR">€ EUR</option>
+      <option value="USD">$ USD</option>
+    </select>
+
+    <!-- Theme Toggle -->
+    <button class="icon-btn" id="theme-toggle" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+      <svg id="theme-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+    </button>
+
+    <!-- Search Trigger -->
+    <button class="icon-btn" id="search-trigger" aria-label="Search Catalog" title="Search (Ctrl+K)">
+      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+    </button>
+
+    <!-- Wishlist Drawer Trigger -->
+    <button class="icon-btn" id="wishlist-trigger" aria-label="Open Wishlist" title="Wishlist">
+      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      <span class="badge" id="wishlist-badge">0</span>
+    </button>
+
+    <!-- Bag Drawer Trigger -->
+    <button class="icon-btn" id="bag-trigger" aria-label="Open Shopping Bag" title="Shopping Bag">
+      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      <span class="badge" id="bag-badge">0</span>
+    </button>
+
+    <!-- Mobile Hamburger Menu Button -->
+    <button class="icon-btn" id="mobile-menu-btn" aria-label="Open Mobile Navigation">
+      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Bottom Dock Navigation -->
+<div id="mobile-dock">
+  <a href="#/" class="active" data-route="home">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="#/shop" data-route="shop">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+    <span>Shop</span>
+  </a>
+  <button id="mobile-search-btn">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+    <span>Search</span>
+  </button>
+  <button id="mobile-wishlist-btn">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+    <span>Saved</span>
+  </button>
+  <button id="mobile-bag-btn">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+    <span>Bag</span>
+  </button>
+</div>
+
+<!-- ==========================================================================
+     PAGE VIEWS (ROUTED BY JS)
+     ========================================================================== -->
+<main id="app-router">
+
+  <!-- ==================== VIEW 1: HOME ==================== -->
+  <div id="view-home" class="view-section active">
+    
+    <!-- 3D Interactive Showcase Hero -->
+    <section id="hero">
+      <div class="hero-backdrop-title dsp">URBANZA</div>
+      <div id="hero-glow"></div>
+
+      <div id="hero-stage" data-cursor="DRAG" aria-label="Interactive 3D Sneaker Showcase">
+        <div id="hero-tilt">
+          <img id="hero-img" src="assets/hero_volt.jpg" alt="Camden Volt Velocity Sneaker" draggable="false">
+
+          <!-- Interactive Hotspot 1: Mesh -->
+          <div class="hotspot" style="left: 24%; top: 48%;">
+            <div class="pin" aria-label="Feature Hotspot 1">1</div>
+            <div class="hotspot-card">
+              <h4>Mono-Mesh Upper</h4>
+              <p>Featherlight, breathable technical mesh engineered for London city commutes.</p>
+            </div>
+          </div>
+
+          <!-- Interactive Hotspot 2: Lacing -->
+          <div class="hotspot" style="left: 45%; top: 20%;">
+            <div class="pin" aria-label="Feature Hotspot 2">2</div>
+            <div class="hotspot-card">
+              <h4>AeroLock Fit System</h4>
+              <p>Reinforced midfoot architecture preventing slippage on wet pavement.</p>
+            </div>
+          </div>
+
+          <!-- Interactive Hotspot 3: Nitrogen Midsole -->
+          <div class="hotspot" style="left: 68%; top: 68%;">
+            <div class="pin" aria-label="Feature Hotspot 3">3</div>
+            <div class="hotspot-card">
+              <h4>Nitrogen Nitrogen Midsole</h4>
+              <p>Ultra-rebound cushioned foam absorbing up to 40% more impact.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-bottom-bar">
+        <div>
+          <p>London street engineering meets runway aesthetic. Sculpted for wet asphalt, priced transparently. Free UK delivery over £75.</p>
+        </div>
+
+        <!-- 4-Colorway Switcher -->
+        <div class="colorway-picker">
+          <span>Drop Colorway:</span>
+          <div class="color-dots" role="group" aria-label="Select Hero Sneaker Colorway">
+            <button class="active" style="--dot-color: #c6ff00" data-hero="0" title="Volt Neon Velocity"></button>
+            <button style="--dot-color: #7a1f2e" data-hero="1" title="Terrace Burgundy Suede"></button>
+            <button style="--dot-color: #f5f5f0" data-hero="2" title="Aura Court White"></button>
+            <button style="--dot-color: #d04bd0" data-hero="3" title="Sunset Orchid Knit"></button>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="pill-btn" href="#/shop">Shop All Drops</a>
+          <a class="pill-btn secondary" href="#/craft">Explore Craft</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Infinite Marquee Ticker -->
+    <div class="marquee-wrapper" aria-label="Brand Announcements">
+      <div class="marquee-track" id="home-marquee">
+        <span>URBANZA LONDON</span>
+        <span>ENGINEERED FOR THE PAVEMENT</span>
+        <span>FREE UK NEXT-DAY DELIVERY OVER £75</span>
+        <span>LIMITED DROP 08 LIVE</span>
+        <span>URBANZA LONDON</span>
+        <span>ENGINEERED FOR THE PAVEMENT</span>
+        <span>FREE UK NEXT-DAY DELIVERY OVER £75</span>
+        <span>LIMITED DROP 08 LIVE</span>
+      </div>
+    </div>
+
+    <!-- Fresh Off The Street (Product Drops Track) -->
+    <section class="container" style="padding-block: 80px 40px;">
+      <div class="section-header">
+        <div>
+          <h2>Fresh Off The Street</h2>
+          <p>Next-gen silhouettes built in limited numbers. Filter your aesthetic or tap any sneaker for instant 360 view.</p>
+        </div>
+        <div class="category-tabs" id="home-category-tabs">
+          <button class="tab-pill active" data-cat="All">All Drops</button>
+          <button class="tab-pill" data-cat="Runners">Tech Runners</button>
+          <button class="tab-pill" data-cat="Terrace">Terrace Classics</button>
+          <button class="tab-pill" data-cat="Platform">Platforms</button>
+          <button class="tab-pill" data-cat="Court">Court Leather</button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="home-products-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Curated Lines Bento Grid -->
+    <section class="container" style="padding-block: 60px;">
+      <div class="section-header">
+        <div>
+          <h2>Curated Collections</h2>
+          <p>From Camden rave nights to Mayfair galleries, explore our distinct styling capsules.</p>
+        </div>
+        <a class="pill-btn secondary" href="#/collections">All Collections →</a>
+      </div>
+
+      <div class="bento-grid">
+        <a class="bento-item span-2x2" href="#/shop?cat=Runners" style="background-image: url('assets/hero_volt.jpg')">
+          <div class="bento-content">
+            <h3>Volt Velocity Series</h3>
+            <p>Aerodynamic engineered road runners · 6 colorways</p>
+          </div>
+        </a>
+
+        <a class="bento-item span-2x1" href="#/shop?cat=Terrace" style="background-image: url('assets/hero_burgundy.jpg')">
+          <div class="bento-content">
+            <h3>Terrace Revival</h3>
+            <p>Suede toe caps & classic vulcanized gum soles</p>
+          </div>
+        </a>
+
+        <a class="bento-item" href="#/shop?cat=Platform" style="background-image: url('assets/hero_pastel.jpg')">
+          <div class="bento-content">
+            <h3>Platform Chunky</h3>
+            <p>Statement stacked soles</p>
+          </div>
+        </a>
+
+        <a class="bento-item" href="#/shop?cat=Court" style="background-image: url('assets/hero_white.jpg')">
+          <div class="bento-content">
+            <h3>Aura Minimal Court</h3>
+            <p>Italian calfskin elegance</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Interactive Craft & Engineering Deep Dive -->
+    <section class="container" style="padding-block: 60px;">
+      <div class="craft-container">
+        <div class="craft-visual">
+          <img id="craft-interactive-img" src="assets/hero_volt.jpg" alt="URBANZA Sneaker Technology">
+        </div>
+        <div>
+          <span style="color:var(--ac); font-weight:800; font-size:12px; text-transform:uppercase; letter-spacing:0.1em;">Crafted in London</span>
+          <h2 style="font-size:clamp(32px, 4.5vw, 64px); margin-block:8px 18px;">Every Layer, Engineered.</h2>
+          <p style="color:var(--fg-muted); margin-bottom:24px;">We dissect standard luxury sneakers and re-architect them from the rubber up for maximum shock absorption on London pavements.</p>
+
+          <div class="craft-tabs">
+            <div class="craft-step-card active" data-craft="0">
+              <h4>1. Technical Breathable Mesh <span>+45% Airflow</span></h4>
+              <p>Dual-weave monofilament prevents heat buildup during high-mileage days.</p>
+            </div>
+            <div class="craft-step-card" data-craft="1">
+              <h4>2. Sculpted Lock Architecture <span>Zero Slip</span></h4>
+              <p>Dynamic cage molds around the calcaneus bone for locked-in stability.</p>
+            </div>
+            <div class="craft-step-card" data-craft="2">
+              <h4>3. Nitrogen-Infused Midsole <span>40% Energy Rebound</span></h4>
+              <p>Supercritical EVA compound creates a bouncy trampoline sensation underfoot.</p>
+            </div>
+            <div class="craft-step-card" data-craft="3">
+              <h4>4. All-Weather Traction Tread <span>Wet Asphalt Grip</span></h4>
+              <p>Multi-directional siping pattern clears surface water instantly.</p>
+            </div>
+          </div>
+
+          <div class="craft-metrics">
+            <div class="metric-box">
+              <b>210g</b>
+              <span>Ultra-Lightweight</span>
+            </div>
+            <div class="metric-box">
+              <b>40%</b>
+              <span>Energy Return</span>
+            </div>
+            <div class="metric-box">
+              <b>100%</b>
+              <span>Recycled Lining</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- London Street Style Lookbook Spotlight -->
+    <section class="container" style="padding-block: 60px;">
+      <div class="section-header">
+        <div>
+          <h2>Seen In Shoreditch & Soho</h2>
+          <p>Tap any hotspot on the London street crew to shop the exact silhouette.</p>
+        </div>
+        <a class="pill-btn secondary" href="#/lookbook">View Full Lookbook →</a>
+      </div>
+
+      <div class="lookbook-banner">
+        <img src="assets/lookbook_london.jpg" alt="London Streetwear Lookbook Editorial">
+        <div class="lookbook-overlay">
+          <h3 style="font-size:clamp(26px, 4vw, 48px); color:#fff; margin-bottom:8px;">Autumn Drop: Rain or Shine</h3>
+          <p style="color:#ddd; max-width:440px;">Shot on location around Redchurch Street and Camden Market.</p>
+        </div>
+
+        <!-- Hotspot Pin 1 on Model Sneaker -->
+        <div class="lookbook-tag-pin" style="left: 36%; top: 88%;">
+          <div class="dot">+</div>
+          <div class="lookbook-tag-card" onclick="location.hash='#/p/camden-volt'">
+            <img src="assets/hero_volt.jpg" alt="Camden Volt">
+            <div>
+              <h5>Camden Volt Velocity</h5>
+              <span>£95 · View Drop</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotspot Pin 2 on Center Model -->
+        <div class="lookbook-tag-pin" style="left: 56%; top: 86%;">
+          <div class="dot">+</div>
+          <div class="lookbook-tag-card" onclick="location.hash='#/p/shoreditch-terrace'">
+            <img src="assets/hero_burgundy.jpg" alt="Shoreditch Terrace">
+            <div>
+              <h5>Shoreditch Terrace</h5>
+              <span>£85 · View Drop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verified Reviews / Social Proof -->
+    <section class="container" style="padding-block: 60px;">
+      <div class="section-header">
+        <div>
+          <h2>London Verified Reviews</h2>
+          <p>Over 120,000 pairs delivered across the UK with a 98% 5-star recommendation rate.</p>
+        </div>
+        <span style="font-family:var(--font-display); font-size:24px; font-weight:800; color:var(--ac);">★ 4.9 / 5.0</span>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Wore them straight to a 10-hour shoot in Camden. Absolutely no heel pain and zero break-in period. The Volt colorway turns heads constantly."</p>
+          <div class="review-author">
+            <div class="author-avatar">J</div>
+            <div class="author-meta">
+              <b>Jade M.</b>
+              <span>London · Verified Buyer · UK 6</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Ordered at 7:30 PM on Thursday, arrived in Manchester by 11 AM Friday. Materials feel identical to my £350 designer runners. Incredible quality."</p>
+          <div class="review-author">
+            <div class="author-avatar">M</div>
+            <div class="author-meta">
+              <b>Marcus T.</b>
+              <span>Manchester · Verified Buyer · UK 9</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The Terrace Burgundy suede with the gum sole is unmatched for casual pub evenings. Fit true to size and the water repellency works like a charm."</p>
+          <div class="review-author">
+            <div class="author-avatar">A</div>
+            <div class="author-meta">
+              <b>Aisha K.</b>
+              <span>Leeds · Verified Buyer · UK 5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIP Drop Club Newsletter -->
+    <section class="container">
+      <div class="newsletter-banner">
+        <div>
+          <h2>Get First Dibs On Every Drop.</h2>
+          <p style="font-size:16px; margin-top:10px; opacity:0.85;">Join 64,000+ members receiving secret 2-hour early access links and members-only colorway releases.</p>
+        </div>
+        <div>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+            <button type="submit">Join VIP List</button>
+          </form>
+          <div class="newsletter-success" id="newsletter-success">
+            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>You're on the list! Use code <b>LONDON10</b> for 10% off.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ==================== VIEW 2: SHOP / CATALOG ==================== -->
+  <div id="view-shop" class="view-section container">
+    <div class="shop-header">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;">
+        <div>
+          <p style="color:var(--fg-muted); font-size:13px; margin-bottom:4px;"><a href="#/">Home</a> / Shop All</p>
+          <h1 style="font-size:clamp(36px, 5vw, 68px);">All Footwear Drops</h1>
+        </div>
+        <p id="catalog-count-badge" style="color:var(--fg-muted); font-size:14px; font-weight:600;">Showing 16 styles</p>
+      </div>
+    </div>
+
+    <!-- Shop Toolbar & Filter Controls -->
+    <div class="shop-toolbar">
+      <div class="search-input-wrapper">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" id="shop-search-input" placeholder="Search by name, color, or style...">
+      </div>
+
+      <div class="filter-bar">
+        <!-- Category Filter -->
+        <select class="filter-select" id="filter-category">
+          <option value="All">All Categories</option>
+          <option value="Runners">Tech Runners</option>
+          <option value="Terrace">Terrace Classics</option>
+          <option value="Platform">Chunky Platforms</option>
+          <option value="Court">Court Leather</option>
+          <option value="Trail">Rugged Trail</option>
+          <option value="High-Top">High-Tops</option>
+        </select>
+
+        <!-- Gender Filter -->
+        <select class="filter-select" id="filter-gender">
+          <option value="All">All Genders</option>
+          <option value="Unisex">Unisex</option>
+          <option value="Men">Men</option>
+          <option value="Women">Women</option>
+        </select>
+
+        <!-- Size Filter -->
+        <select class="filter-select" id="filter-size">
+          <option value="All">All UK Sizes</option>
+          <option value="3">UK 3</option>
+          <option value="4">UK 4</option>
+          <option value="5">UK 5</option>
+          <option value="6">UK 6</option>
+          <option value="7">UK 7</option>
+          <option value="8">UK 8</option>
+          <option value="9">UK 9</option>
+          <option value="10">UK 10</option>
+          <option value="11">UK 11</option>
+          <option value="12">UK 12</option>
+          <option value="13">UK 13</option>
+        </select>
+
+        <!-- Sort By -->
+        <select class="filter-select" id="filter-sort">
+          <option value="featured">Sort: Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Customer Rating</option>
+          <option value="name">Alphabetical</option>
+        </select>
+
+        <button class="pill-btn outline" id="reset-filters-btn" style="padding: 8px 16px; font-size:12px;">Reset</button>
+      </div>
+    </div>
+
+    <!-- Catalog Products Grid -->
+    <div class="products-grid" id="catalog-products-grid">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+
+  <!-- ==================== VIEW 3: COLLECTIONS ==================== -->
+  <div id="view-collections" class="view-section container" style="padding-block: 40px 80px;">
+    <div class="section-header">
+      <div>
+        <p style="color:var(--fg-muted); font-size:13px; margin-bottom:4px;"><a href="#/">Home</a> / Collections</p>
+        <h1 style="font-size:clamp(36px, 5vw, 68px);">Curated Lines</h1>
+        <p style="margin-top:12px;">Each collection represents an archival mood inspired by London subcultures.</p>
+      </div>
+    </div>
+
+    <div class="bento-grid" style="grid-auto-rows: 320px;">
+      <a class="bento-item span-2x2" href="#/shop?cat=Runners" style="background-image: url('assets/hero_volt.jpg')">
+        <div class="bento-content">
+          <span class="badge" style="position:static; display:inline-block; margin-bottom:12px;">DROP 08</span>
+          <h3>Camden Volt Underground</h3>
+          <p>Neon accents, hyper-breathable technical knit, and road-tested EVA cushioning.</p>
+        </div>
+      </a>
+
+      <a class="bento-item span-2x1" href="#/shop?cat=Terrace" style="background-image: url('assets/hero_burgundy.jpg')">
+        <div class="bento-content">
+          <h3>Shoreditch Terrace Revival</h3>
+          <p>Rich burgundy and sage suedes with vintage gum cupsole tooling.</p>
+        </div>
+      </a>
+
+      <a class="bento-item" href="#/shop?cat=Platform" style="background-image: url('assets/hero_pastel.jpg')">
+        <div class="bento-content">
+          <h3>Brixton Pastel Platforms</h3>
+          <p>Colorblocked lavender, mint and butter cream platform stacks.</p>
+        </div>
+      </a>
+
+      <a class="bento-item" href="#/shop?cat=Court" style="background-image: url('assets/hero_white.jpg')">
+        <div class="bento-content">
+          <h3>Soho Minimal Court</h3>
+          <p>Full-grain white leather with subtle gold stamped typography.</p>
+        </div>
+      </a>
+
+      <a class="bento-item span-2x1" href="#/shop?cat=Trail" style="background-image: url('https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=1000&q=80')">
+        <div class="bento-content">
+          <h3>Hackney All-Weather Trail</h3>
+          <p>Lugged outsoles, reinforced mudguards, and water-repellent cord laces.</p>
+        </div>
+      </a>
+
+      <a class="bento-item span-2x1" href="#/shop?cat=High-Top" style="background-image: url('https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?auto=format&fit=crop&w=1000&q=80')">
+        <div class="bento-content">
+          <h3>Carnaby 80s High-Top</h3>
+          <p>Padded ankle collars, royal blue piping, and retro hardwood heritage.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ==================== VIEW 4: LOOKBOOK ==================== -->
+  <div id="view-lookbook" class="view-section container" style="padding-block: 40px 80px;">
+    <div class="section-header">
+      <div>
+        <p style="color:var(--fg-muted); font-size:13px; margin-bottom:4px;"><a href="#/">Home</a> / Lookbook</p>
+        <h1 style="font-size:clamp(36px, 5vw, 68px);">Seen On London Streets</h1>
+        <p style="margin-top:12px;">Editorial street style captured in Shoreditch, Soho, and Southbank.</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); gap:24px;">
+      <div class="lookbook-banner" style="aspect-ratio: 4/5;">
+        <img src="assets/lookbook_london.jpg" alt="London Street Crew">
+        <div class="lookbook-overlay">
+          <h3>Shoreditch Nightfall</h3>
+          <p>Camden Volt Runner paired with technical cargo pants.</p>
+        </div>
+      </div>
+
+      <div class="lookbook-banner" style="aspect-ratio: 4/5;">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80" alt="Editorial Fashion">
+        <div class="lookbook-overlay">
+          <h3>Soho Daylight Court</h3>
+          <p>Minimal white leather court sneakers with tailored wool overcoat.</p>
+        </div>
+      </div>
+
+      <div class="lookbook-banner" style="aspect-ratio: 4/5;">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80" alt="Streetwear Movement">
+        <div class="lookbook-overlay">
+          <h3>Brixton Platform Rhythm</h3>
+          <p>Layered pastel chunky platform sneakers in South London.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== VIEW 5: CRAFT & TECH ==================== -->
+  <div id="view-craft" class="view-section container" style="padding-block: 40px 80px;">
+    <div class="section-header">
+      <div>
+        <p style="color:var(--fg-muted); font-size:13px; margin-bottom:4px;"><a href="#/">Home</a> / Craft & Tech</p>
+        <h1 style="font-size:clamp(36px, 5vw, 68px);">Architected For Speed & Shock</h1>
+      </div>
+    </div>
+
+    <div class="craft-container">
+      <div class="craft-visual">
+        <img src="assets/hero_volt.jpg" alt="Volt Anatomy">
+      </div>
+      <div>
+        <h2>The 4-Layer Engineering Manifesto</h2>
+        <p style="color:var(--fg-muted); margin-block:14px 24px;">Standard sneakers use cheap open-cell foam that packs out after 3 months. URBANZA develops custom nitrogen-infused micro-cellular midsoles that retain 96% elasticity over 800+ kilometers.</p>
+
+        <div class="craft-tabs">
+          <div class="craft-step-card active">
+            <h4>1. Hydro-Weave Monofilament</h4>
+            <p>Sheds rainwater while allowing perspiration vapor to escape freely.</p>
+          </div>
+          <div class="craft-step-card">
+            <h4>2. ArchFlex Stabilizer Shank</h4>
+            <p>Thermoplastic polyurethane plate embedded to control torsional twisting.</p>
+          </div>
+          <div class="craft-step-card">
+            <h4>3. Dual-Density Nitrogen Foam</h4>
+            <p>Firm on the perimeter for cornering stability, plush in the center for cloud-like cushioning.</p>
+          </div>
+          <div class="craft-step-card">
+            <h4>4. Vulcanised High-Tack Rubber</h4>
+            <p>65-durometer rubber tested extensively on slick London tube station tile floors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== VIEW 6: STORE LOCATOR ==================== -->
+  <div id="view-stores" class="view-section container" style="padding-block: 40px 80px;">
+    <div class="section-header">
+      <div>
+        <p style="color:var(--fg-muted); font-size:13px; margin-bottom:4px;"><a href="#/">Home</a> / Stores</p>
+        <h1 style="font-size:clamp(36px, 5vw, 68px);">UK Flagship Stores</h1>
+        <p style="margin-top:12px;">Visit us in person to try any silhouette or pick up click-and-collect orders.</p>
+      </div>
+    </div>
+
+    <div class="stores-grid">
+      <div class="store-card">
+        <span class="badge" style="position:static; display:inline-block; width:auto; height:auto; padding:3px 10px; border-radius:var(--radius-pill); margin-bottom:8px;">FLAGSHIP LAB</span>
+        <h3>Shoreditch Concept Store</h3>
+        <p style="color:var(--fg-muted);">42 Redchurch Street, Shoreditch, London E2 7DD</p>
+        <p><b>Hours:</b> Mon–Sat 10:00–19:00 · Sun 11:00–17:00</p>
+        <p><b>Phone:</b> +44 20 7946 0912</p>
+        <div style="display:flex; gap:10px; margin-top:10px;">
+          <a class="pill-btn secondary" href="https://maps.google.com" target="_blank" rel="noopener">Get Directions</a>
+          <button class="pill-btn outline" onclick="alert('Live inventory in Shoreditch: 14/16 styles in stock today!')">Check Stock</button>
+        </div>
+      </div>
+
+      <div class="store-card">
+        <span class="badge" style="position:static; display:inline-block; width:auto; height:auto; padding:3px 10px; border-radius:var(--radius-pill); margin-bottom:8px;">CENTRAL LONDON</span>
+        <h3>Soho Boutique</h3>
+        <p style="color:var(--fg-muted);">18 Carnaby Street, Soho, London W1F 9PB</p>
+        <p><b>Hours:</b> Mon–Sat 10:00–20:00 · Sun 12:00–18:00</p>
+        <p><b>Phone:</b> +44 20 7946 0843</p>
+        <div style="display:flex; gap:10px; margin-top:10px;">
+          <a class="pill-btn secondary" href="https://maps.google.com" target="_blank" rel="noopener">Get Directions</a>
+          <button class="pill-btn outline" onclick="alert('Live inventory in Soho: All sizes UK 3 to 13 available!')">Check Stock</button>
+        </div>
+      </div>
+
+      <div class="store-card">
+        <span class="badge" style="position:static; display:inline-block; width:auto; height:auto; padding:3px 10px; border-radius:var(--radius-pill); margin-bottom:8px;">NORTHERN HUB</span>
+        <h3>Manchester Northern Quarter</h3>
+        <p style="color:var(--fg-muted);">64 Oldham Street, Northern Quarter, Manchester M4 1LE</p>
+        <p><b>Hours:</b> Mon–Sat 10:00–18:30 · Sun 11:00–17:00</p>
+        <p><b>Phone:</b> +44 161 832 9914</p>
+        <div style="display:flex; gap:10px; margin-top:10px;">
+          <a class="pill-btn secondary" href="https://maps.google.com" target="_blank" rel="noopener">Get Directions</a>
+          <button class="pill-btn outline" onclick="alert('Live inventory in Manchester: Fresh Drop 08 just restocked!')">Check Stock</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== VIEW 7: ORDER TRACKING ==================== -->
+  <div id="view-track-order" class="view-section container" style="padding-block: 40px 80px;">
+    <div class="section-header" style="text-align:center; justify-content:center;">
+      <div>
+        <p style="color:var(--fg-muted); font-size:13px; margin-bottom:4px;"><a href="#/">Home</a> / Tracking</p>
+        <h1 style="font-size:clamp(36px, 5vw, 68px);">Live Drop Tracker</h1>
+        <p style="margin-top:12px; margin-inline:auto;">Enter your URBANZA order reference below to track DPD express courier progress.</p>
+      </div>
+    </div>
+
+    <div class="tracking-card">
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px;">
+        <input type="text" id="track-order-input" value="UBZ-2026-9842" style="flex:1; min-width:200px; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-pill); padding:12px 20px; color:var(--fg); font-size:15px; font-weight:700; outline:none;">
+        <button class="pill-btn" onclick="simulateTrackingLookup()">Update Status</button>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:16px;">
+        <div>
+          <span style="font-size:12px; color:var(--fg-muted);">Order Reference</span>
+          <h4 id="track-ref-label">UBZ-2026-9842</h4>
+        </div>
+        <div>
+          <span style="font-size:12px; color:var(--fg-muted);">Courier Service</span>
+          <h4 style="color:var(--ac);">DPD UK Next-Day Air</h4>
+        </div>
+        <div>
+          <span style="font-size:12px; color:var(--fg-muted);">Estimated Delivery</span>
+          <h4>Today by 2:45 PM</h4>
+        </div>
+      </div>
+
+      <div class="tracking-timeline">
+        <div class="timeline-step completed">
+          <h4>Order Confirmed & Paid</h4>
+          <p style="color:var(--fg-muted); font-size:13px;">Yesterday, 19:42 · London Fulfilment Hub</p>
+        </div>
+        <div class="timeline-step completed">
+          <h4>Quality Inspected & Boxed</h4>
+          <p style="color:var(--fg-muted); font-size:13px;">Yesterday, 21:15 · Hand-laced and tagged</p>
+        </div>
+        <div class="timeline-step active">
+          <h4 style="color:var(--ac);">Out For Delivery with Driver Liam</h4>
+          <p style="color:var(--fg-muted); font-size:13px;">Today, 08:30 · Driver is 6 stops away (Van #418)</p>
+        </div>
+        <div class="timeline-step">
+          <h4 style="color:var(--fg-muted);">Delivered & Signed</h4>
+          <p style="color:var(--fg-muted); font-size:13px;">Estimated at doorstep by 14:45</p>
+        </div>
+      </div>
+
+      <div style="background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-md); padding:16px; display:flex; align-items:center; gap:16px;">
+        <img src="assets/hero_volt.jpg" alt="Item" style="width:60px; height:60px; object-fit:contain; border-radius:8px; background:var(--surface);">
+        <div>
+          <b>Camden Volt Velocity Runner</b>
+          <p style="font-size:12px; color:var(--fg-muted);">Size: UK 8 · Qty: 1 · Safe place: Porch / Mailbox</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== VIEW 8: ABOUT BRAND ==================== -->
+  <div id="view-about" class="view-section container" style="padding-block: 40px 80px;">
+    <div class="section-header">
+      <div>
+        <p style="color:var(--fg-muted); font-size:13px; margin-bottom:4px;"><a href="#/">Home</a> / About</p>
+        <h1 style="font-size:clamp(36px, 5vw, 68px);">Born On London Pavements.</h1>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center;">
+      <div>
+        <h3 style="font-size:28px; margin-bottom:16px;">Why We Built URBANZA</h3>
+        <p style="color:var(--fg-muted); margin-bottom:16px; font-size:16px;">In 2022, we noticed a broken cycle in footwear: multinational conglomerates were charging £220+ for plastic sneakers produced in mass factories for less than £14.</p>
+        <p style="color:var(--fg-muted); margin-bottom:16px; font-size:16px;">URBANZA was founded in an East London garage to invert this model. We invest 80% of our production budget into supercritical foam compounding, Italian full-grain hides, and recycled nylon knits — selling directly to the street with zero middleman markups.</p>
+        <p style="color:var(--fg-muted); font-size:16px;">Every pair is tested over 200 miles across wet autumn sidewalks, cobblestone alleyways, and nighttime tube stations before it receives the URBANZA stamp.</p>
+
+        <div style="display:flex; gap:16px; margin-top:28px;">
+          <a class="pill-btn" href="#/shop">Shop The Drop</a>
+          <a class="pill-btn secondary" href="#/stores">Visit Our Flagship</a>
+        </div>
+      </div>
+
+      <div style="border-radius:28px; overflow:hidden; border:1px solid var(--border);">
+        <img src="assets/lookbook_london.jpg" alt="URBANZA Founders and Street Crew" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ==========================================================================
+     GLOBAL PRODUCT DETAIL VIEW (PDP OVERLAY)
+     ========================================================================== -->
+<div id="pdp-view">
+  <div class="pdp-wrapper">
+    <p class="pdp-breadcrumbs">
+      <a href="#/">Home</a> / <a href="#/shop">Shop</a> / <span id="pdp-crumb-title">Product Details</span>
+    </p>
+
+    <div class="pdp-grid">
+      <!-- Gallery Column -->
+      <div class="pdp-gallery">
+        <div class="pdp-thumbnails" id="pdp-thumbnails">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="pdp-main-image-stage" id="pdp-main-stage">
+          <img id="pdp-main-img" src="assets/hero_volt.jpg" alt="Product Main Image">
+        </div>
+      </div>
+
+      <!-- Details Column -->
+      <div class="pdp-details-info">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <button id="pdp-back-btn" class="pill-btn secondary" style="padding:7px 18px; font-size:13px;">← Back</button>
+          <button id="pdp-close-btn" class="icon-btn" aria-label="Close details" title="Close details">✕</button>
+        </div>
+        <span class="product-tag" id="pdp-badge" style="position:static; display:inline-block;">NEW DROP</span>
+
+        <h1 id="pdp-title">Camden Volt Velocity</h1>
+
+        <div class="pdp-price-rating">
+          <div class="pr" id="pdp-price">£95</div>
+          <div id="pdp-was-price" class="original-price" style="font-size:20px;"></div>
+          <div class="product-rating" id="pdp-rating">★★★★★ 4.9 <span>(142 reviews)</span></div>
+        </div>
+
+        <p id="pdp-desc" style="color:var(--fg-muted); font-size:15px; margin-bottom:16px;">
+          Lightweight road trainer with breathable monofilament mesh and nitrogen-injected EVA foam midsole.
+        </p>
+
+        <!-- Colorway Swatches -->
+        <div style="margin-bottom:20px;">
+          <span style="font-size:13px; font-weight:700;">Colourway: <b id="pdp-color-name">Volt / Black</b></span>
+          <div class="color-dots" id="pdp-color-dots" style="margin-top:8px;">
+            <!-- Dots injected by JS -->
+          </div>
+        </div>
+
+        <!-- Size Selection -->
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:13px; font-weight:700;">Select UK Size</span>
+          <button id="open-size-guide-btn" style="color:var(--ac); font-size:13px; font-weight:700; text-decoration:underline;">Size Guide & Fit Quiz</button>
+        </div>
+
+        <div class="size-selector-grid" id="pdp-size-grid">
+          <!-- Injected by JS -->
+        </div>
+
+        <p id="pdp-stock-alert" style="font-size:13px; font-weight:700; margin-bottom:16px;"></p>
+
+        <!-- Actions: Quantity + Add to Bag + Wishlist -->
+        <div class="pdp-actions-row">
+          <div class="qty-stepper" style="padding:10px 18px;">
+            <button id="pdp-qty-minus" aria-label="Decrease quantity">−</button>
+            <span id="pdp-qty-val" style="min-width:20px; text-align:center;">1</span>
+            <button id="pdp-qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+
+          <button class="pill-btn" id="pdp-add-cart-btn" style="flex:1; padding:16px;">Add to Bag</button>
+          <button class="icon-btn" id="pdp-wishlist-btn" style="width:52px; height:52px;" title="Save to Wishlist">♡</button>
+        </div>
+
+        <!-- Next-Day Countdown Box -->
+        <div class="countdown-box">
+          <b>⚡ Order within the next 2h 18m</b> for guaranteed <b>UK Next-Day Delivery</b> on your doorstep tomorrow.
+        </div>
+
+        <!-- Accordion Details -->
+        <div style="border-top:1px solid var(--border);">
+          <details style="padding-block:14px; border-bottom:1px solid var(--border);" open>
+            <summary style="font-weight:700; cursor:pointer;">Silhouette & Performance</summary>
+            <p id="pdp-accordion-perf" style="color:var(--fg-muted); margin-top:8px; font-size:14px;">
+              Designed for neutral road runners and all-day city walking. Stack height: 32mm heel / 24mm forefoot (8mm drop). True-to-size UK fit.
+            </p>
+          </details>
+
+          <details style="padding-block:14px; border-bottom:1px solid var(--border);">
+            <summary style="font-weight:700; cursor:pointer;">Materials & Craft</summary>
+            <p id="pdp-accordion-materials" style="color:var(--fg-muted); margin-top:8px; font-size:14px;">
+              Upper: 100% Recycled Technical Monofilament Mesh. Midsole: Supercritical Nitrogen-Infused EVA. Outsole: High-Abrasive Carbon Rubber Compound.
+            </p>
+          </details>
+
+          <details style="padding-block:14px; border-bottom:1px solid var(--border);">
+            <summary style="font-weight:700; cursor:pointer;">Free UK Delivery & 30-Day Returns</summary>
+            <p style="color:var(--fg-muted); margin-top:8px; font-size:14px;">
+              Free Royal Mail Tracked 24 on orders over £75. £3.95 on smaller orders. Next-Day DPD express available at checkout. Returns are 100% free with pre-printed peel-and-stick return labels.
+            </p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     GLOBAL SLIDE-OUT DRAWERS (CART & WISHLIST & MOBILE NAV)
+     ========================================================================== -->
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+<!-- Shopping Bag Drawer -->
+<aside class="slide-drawer" id="cart-drawer" aria-label="Shopping Bag">
+  <div class="drawer-header">
+    <h3>Your Bag (<span id="cart-count-header">0</span>)</h3>
+    <button class="icon-btn" id="close-cart-btn" aria-label="Close Bag">✕</button>
+  </div>
+
+  <div class="free-shipping-card">
+    <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700;">
+      <span id="free-shipping-text">Free UK shipping over £75</span>
+      <span id="free-shipping-amount">£75 away</span>
+    </div>
+    <div class="free-shipping-bar">
+      <div class="free-shipping-fill" id="free-shipping-fill"></div>
+    </div>
+  </div>
+
+  <div class="drawer-items-list" id="cart-items-container">
+    <!-- Populated by JS -->
+  </div>
+
+  <div class="drawer-footer">
+    <div class="promo-row">
+      <input type="text" id="promo-code-input" placeholder="Promo code (e.g. LONDON10)">
+      <button class="pill-btn secondary" id="apply-promo-btn" style="padding:8px 16px; font-size:12px;">Apply</button>
+    </div>
+
+    <div class="drawer-totals-row">
+      <span>Subtotal</span>
+      <span id="cart-subtotal-val">£0</span>
+    </div>
+    <div class="drawer-totals-row" id="discount-row" style="display:none; color:var(--ac);">
+      <span>Discount (LONDON10)</span>
+      <span id="cart-discount-val">-£0</span>
+    </div>
+    <div class="drawer-totals-row">
+      <span>UK Delivery</span>
+      <span id="cart-shipping-val">Calculated next</span>
+    </div>
+    <div class="drawer-totals-row grand-total">
+      <span>Total</span>
+      <span id="cart-grand-total">£0</span>
+    </div>
+
+    <button class="pill-btn" id="checkout-now-btn" style="padding:16px; font-size:15px; width:100%;">Proceed to Checkout</button>
+  </div>
+</aside>
+
+<!-- Wishlist Drawer -->
+<aside class="slide-drawer" id="wishlist-drawer" aria-label="Wishlist">
+  <div class="drawer-header">
+    <h3>Saved Drops (<span id="wishlist-count-header">0</span>)</h3>
+    <button class="icon-btn" id="close-wishlist-btn" aria-label="Close Wishlist">✕</button>
+  </div>
+
+  <div class="drawer-items-list" id="wishlist-items-container">
+    <!-- Populated by JS -->
+  </div>
+</aside>
+
+<!-- Mobile Navigation Slide Drawer -->
+<aside class="slide-drawer" id="mobile-nav-drawer" style="left:0; right:auto; transform:translateX(-105%); border-right:1px solid var(--border); border-left:none;">
+  <div class="drawer-header">
+    <span class="dsp" style="font-size:26px;">URBANZA</span>
+    <button class="icon-btn" id="close-mobile-nav-btn">✕</button>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:20px; font-size:20px; font-weight:800; font-family:var(--font-display); padding-block:20px;">
+    <a href="#/" class="mobile-nav-link">Home</a>
+    <a href="#/shop" class="mobile-nav-link">Shop All Drops</a>
+    <a href="#/collections" class="mobile-nav-link">Curated Collections</a>
+    <a href="#/lookbook" class="mobile-nav-link">Street Lookbook</a>
+    <a href="#/craft" class="mobile-nav-link">Craft & Technology</a>
+    <a href="#/stores" class="mobile-nav-link">UK Flagship Stores</a>
+    <a href="#/track-order" class="mobile-nav-link">Live Order Tracker</a>
+    <a href="#/about" class="mobile-nav-link">Brand Story</a>
+  </div>
+
+  <div style="margin-top:auto; padding-top:20px; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:12px;">
+    <p style="font-size:12px; color:var(--fg-muted);">London Studio: 42 Redchurch St, E2 7DD</p>
+    <p style="font-size:12px; color:var(--fg-muted);">Free UK delivery over £75</p>
+  </div>
+</aside>
+
+<!-- ==========================================================================
+     GLOBAL SEARCH MODAL (CTRL+K)
+     ========================================================================== */
+<div class="modal-overlay" id="search-modal">
+  <div class="modal-card" style="max-width:640px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <h4>Search URBANZA Archive</h4>
+      <button class="icon-btn" id="close-search-modal-btn">✕</button>
+    </div>
+
+    <div class="search-input-wrapper" style="max-width:none; margin-bottom:16px;">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      <input type="text" id="global-search-input" placeholder="Search runners, terrace, volt, sizes, colors..." autofocus>
+    </div>
+
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+      <span style="font-size:12px; color:var(--fg-muted); align-self:center;">Trending:</span>
+      <button class="tab-pill" onclick="searchFor('Volt')">Volt</button>
+      <button class="tab-pill" onclick="searchFor('Terrace')">Terrace</button>
+      <button class="tab-pill" onclick="searchFor('Platform')">Platform</button>
+      <button class="tab-pill" onclick="searchFor('White')">Court White</button>
+      <button class="tab-pill" onclick="searchFor('Trail')">Trail</button>
+    </div>
+
+    <div id="search-results-list" style="display:flex; flex-direction:column; gap:10px; max-height:360px; overflow-y:auto;">
+      <!-- Populated dynamically -->
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     CHECKOUT FLOW MODAL & CONFIRMATION
+     ========================================================================== -->
+<div class="modal-overlay" id="checkout-modal">
+  <div class="modal-card">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <h3>Express Checkout Demo</h3>
+      <button class="icon-btn" id="close-checkout-modal-btn">✕</button>
+    </div>
+
+    <div class="checkout-stepper">
+      <span class="step-indicator active">1. Address</span>
+      <span class="step-indicator active">2. Shipping</span>
+      <span class="step-indicator active">3. Payment</span>
+    </div>
+
+    <!-- Express Pay Options -->
+    <div class="payment-method-tabs">
+      <button class="pay-tab active" id="pay-apple"> Apple Pay</button>
+      <button class="pay-tab" id="pay-card">Credit Card</button>
+      <button class="pay-tab" id="pay-klarna">Klarna (3x)</button>
+    </div>
+
+    <form id="checkout-form" onsubmit="event.preventDefault(); completeCheckout();">
+      <div class="form-grid">
+        <div class="form-group full">
+          <label>Email Address for Order Confirmation</label>
+          <input type="email" value="alex.walker@london.co.uk" required>
+        </div>
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" value="Alex" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" value="Walker" required>
+        </div>
+        <div class="form-group full">
+          <label>UK Street Address</label>
+          <input type="text" value="28 Redchurch Street, Apt 4B" required>
+        </div>
+        <div class="form-group">
+          <label>City / Borough</label>
+          <input type="text" value="London" required>
+        </div>
+        <div class="form-group">
+          <label>UK Postcode</label>
+          <input type="text" value="E2 7DD" required>
+        </div>
+        <div class="form-group full">
+          <label>Delivery Method</label>
+          <select id="checkout-delivery-method">
+            <option value="free">Royal Mail Tracked 24 (FREE on orders > £75)</option>
+            <option value="dpd">DPD Express Next-Day by 1pm (+£4.95)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:16px; margin-bottom:20px;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+          <span>Items Total:</span>
+          <b id="checkout-items-total">£95.00</b>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+          <span>Delivery:</span>
+          <b id="checkout-shipping-total">FREE</b>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:18px; font-weight:800; border-top:1px solid var(--border); padding-top:8px;">
+          <span>Total To Pay:</span>
+          <span id="checkout-grand-total" style="color:var(--ac);">£95.00</span>
+        </div>
+      </div>
+
+      <button type="submit" class="pill-btn" style="width:100%; padding:16px; font-size:16px;">Pay & Place Demo Order</button>
+    </form>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     ORDER CONFIRMATION MODAL WITH CONFETTI
+     ========================================================================== -->
+<div class="modal-overlay" id="order-confirmed-modal">
+  <div class="modal-card" style="text-align:center; max-width:520px;">
+    <div style="width:72px; height:72px; border-radius:50%; background:var(--ac); color:#09090b; display:grid; place-items:center; margin:0 auto 18px; font-size:36px;">✓</div>
+    <h2 style="font-size:36px; margin-bottom:8px;">Drop Confirmed!</h2>
+    <p style="color:var(--fg-muted); margin-bottom:20px;">Your sneakers are being hand-laced at our East London hub.</p>
+
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:18px; text-align:left; margin-bottom:24px;">
+      <p style="font-size:13px; color:var(--fg-muted);">Order Reference:</p>
+      <h3 style="color:var(--ac); font-size:22px; margin-bottom:8px;" id="confirmed-ref">UBZ-2026-9842</h3>
+      <p style="font-size:13px; color:var(--fg-muted);">Estimated Delivery:</p>
+      <b>Tomorrow between 1:00 PM – 3:00 PM (DPD Tracked)</b>
+    </div>
+
+    <div style="display:flex; gap:12px; justify-content:center;">
+      <button class="pill-btn" onclick="goToTrackingFromOrder()">Track This Drop</button>
+      <button class="pill-btn secondary" onclick="closeOrderModal()">Continue Browsing</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     SIZE GUIDE & FIT QUIZ MODAL
+     ========================================================================== -->
+<div class="modal-overlay" id="size-guide-modal">
+  <div class="modal-card" style="max-width:680px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+      <h3>Size Guide & Fit Advisor</h3>
+      <button class="icon-btn" id="close-size-guide-btn">✕</button>
+    </div>
+
+    <p style="color:var(--fg-muted); margin-bottom:20px;">
+      URBANZA silhouettes are designed around standard UK unisex lasts. If between sizes, we recommend sizing up a half step.
+    </p>
+
+    <table style="width:100%; border-collapse:collapse; margin-bottom:24px; font-size:13px;">
+      <thead>
+        <tr style="border-bottom:1px solid var(--border); text-align:left; color:var(--fg-muted);">
+          <th style="padding:10px;">UK</th>
+          <th style="padding:10px;">EU</th>
+          <th style="padding:10px;">US Men</th>
+          <th style="padding:10px;">US Women</th>
+          <th style="padding:10px;">Foot Length (CM)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">UK 3</td><td>EU 36</td><td>US 4</td><td>US 5.5</td><td>22.0 cm</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">UK 4</td><td>EU 37</td><td>US 5</td><td>US 6.5</td><td>22.8 cm</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">UK 5</td><td>EU 38</td><td>US 6</td><td>US 7.5</td><td>23.7 cm</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">UK 6</td><td>EU 39</td><td>US 7</td><td>US 8.5</td><td>24.5 cm</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">UK 7</td><td>EU 41</td><td>US 8</td><td>US 9.5</td><td>25.4 cm</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">UK 8</td><td>EU 42</td><td>US 9</td><td>US 10.5</td><td>26.2 cm</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">UK 9</td><td>EU 43</td><td>US 10</td><td>US 11.5</td><td>27.1 cm</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">UK 10</td><td>EU 44</td><td>US 11</td><td>US 12.5</td><td>28.0 cm</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">UK 11</td><td>EU 45</td><td>US 12</td><td>US 13.5</td><td>28.8 cm</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">UK 12</td><td>EU 46</td><td>US 13</td><td>US 14.5</td><td>29.7 cm</td></tr>
+        <tr><td style="padding:10px;">UK 13</td><td>EU 47</td><td>US 14</td><td>US 15.5</td><td>30.5 cm</td></tr>
+      </tbody>
+    </table>
+
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:16px;">
+      <h4 style="margin-bottom:6px;">Need Personal Fitting?</h4>
+      <p style="font-size:13px; color:var(--fg-muted);">Visit our Shoreditch Concept Lab or message our London fitting concierge on WhatsApp: +44 20 7946 0912.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     GLOBAL FOOTER
+     ========================================================================== -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="dsp">URBANZA</div>
+        <p style="max-width:320px; font-size:14px; margin-bottom:16px;">
+          London luxury streetwear footwear. Engineered for wet pavement, sculpted for high aesthetics.
+        </p>
+        <p style="font-size:12px; color:var(--fg-muted);">Designed in London, UK · Shipped Worldwide.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="#/shop">All Footwear</a></li>
+          <li><a href="#/shop?cat=Runners">Tech Runners</a></li>
+          <li><a href="#/shop?cat=Terrace">Terrace Classics</a></li>
+          <li><a href="#/shop?cat=Platform">Platforms</a></li>
+          <li><a href="#/shop?cat=Court">Court Leather</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Collections</h5>
+        <ul>
+          <li><a href="#/collections">Camden Underground</a></li>
+          <li><a href="#/collections">Shoreditch Terrace</a></li>
+          <li><a href="#/lookbook">Street Lookbook</a></li>
+          <li><a href="#/craft">Engineering Lab</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Customer Care</h5>
+        <ul>
+          <li><a href="#/track-order">Track Your Order</a></li>
+          <li><a href="#" onclick="openSizeGuide(); return false;">Size Guide</a></li>
+          <li><a href="#/stores">Flagship Locations</a></li>
+          <li><a href="#" onclick="alert('Free 30-day UK returns. Contact care@urbanza.co.uk'); return false;">Returns & Exchanges</a></li>
+          <li><a href="#/about">Brand Story</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Flagships</h5>
+        <ul>
+          <li><b>Soho:</b> 18 Carnaby St</li>
+          <li><b>Shoreditch:</b> 42 Redchurch St</li>
+          <li><b>Manchester:</b> 64 Oldham St</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 URBANZA LTD (LONDON). ALL RIGHTS RESERVED. CONCEPT CLIENT DEMO.</span>
+      <div class="payment-badges">
+        <span class="payment-badge">Apple Pay</span>
+        <span class="payment-badge">Google Pay</span>
+        <span class="payment-badge">Visa</span>
+        <span class="payment-badge">Mastercard</span>
+        <span class="payment-badge">Klarna</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- External Animation Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<!-- ==========================================================================
+     APPLICATION LOGIC & DATABASE
+     ========================================================================== -->
+<script>
+/* ==========================================================================
+   1. PRODUCT DATABASE (16 DIVERSE STYLES WITH MULTI-IMAGE GALLERIES)
+   ========================================================================== */
+const PRODUCTS = [
+  {
+    id: "camden-volt",
+    name: "Camden Volt Velocity",
+    category: "Runners",
+    gender: "Unisex",
+    price: 95,
+    originalPrice: 125,
+    badge: "HOT DROP",
+    rating: 4.9,
+    reviewsCount: 142,
+    colorName: "Volt Neon / Carbon Black",
+    colors: ["#c6ff00", "#09090b", "#f5f5f0"],
+    desc: "Lightweight aerodynamic road runner with breathable monofilament mesh and nitrogen-injected EVA foam. Built for London commuting and all-night raves.",
+    materials: "Engineered mono-mesh upper, supercritical nitrogen foam midsole, high-abrasion carbon rubber tread.",
+    images: [
+      "assets/hero_volt.jpg",
+      "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "shoreditch-terrace",
+    name: "Shoreditch Terrace Classic",
+    category: "Terrace",
+    gender: "Unisex",
+    price: 85,
+    originalPrice: null,
+    badge: "HERITAGE",
+    rating: 4.8,
+    reviewsCount: 98,
+    colorName: "Burgundy Suede / Cream Gum",
+    colors: ["#7a1f2e", "#f5f5f0", "#444444"],
+    desc: "Archival British terrace trainer featuring velvety calf suede, padded tongue, and vulcanised gum rubber outsole that patinas with wear.",
+    materials: "Suede and full-grain leather upper, vulcanised natural gum sole, ortholite comfort footbed.",
+    images: [
+      "assets/hero_burgundy.jpg",
+      "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "brixton-pastel",
+    name: "Brixton Pastel Platform",
+    category: "Platform",
+    gender: "Women",
+    price: 110,
+    originalPrice: 140,
+    badge: "LIMITED",
+    rating: 4.7,
+    reviewsCount: 116,
+    colorName: "Lavender / Mint / Cream",
+    colors: ["#d0b4de", "#a8e6cf", "#fff6e5"],
+    desc: "Sculpted statement platform with stacked pastel panels, elevated 45mm foam midsole, and plush terry lining for supreme foot comfort.",
+    materials: "Multi-layered leather and suede, elevated EVA platform cupsole, cushioned ankle collar.",
+    images: [
+      "assets/hero_pastel.jpg",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1597045566677-8cf032ed6634?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "soho-court-white",
+    name: "Soho Court Aura Minimal",
+    category: "Court",
+    gender: "Unisex",
+    price: 89,
+    originalPrice: null,
+    badge: "ICON",
+    rating: 4.9,
+    reviewsCount: 204,
+    colorName: "Optic White / Warm Cream",
+    colors: ["#ffffff", "#f0f0eb", "#09090b"],
+    desc: "Crisp architectural white court shoe tailored from supple Italian calf leather with micro-perforations and gold foil stamped heel insignia.",
+    materials: "Smooth Italian calfskin, cotton waxed laces, stitched rubber cupsole.",
+    images: [
+      "assets/hero_white.jpg",
+      "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "dalston-sunset",
+    name: "Dalston Sunset Knit",
+    category: "Runners",
+    gender: "Unisex",
+    price: 125,
+    originalPrice: 155,
+    badge: "SALE -20%",
+    rating: 4.8,
+    reviewsCount: 89,
+    colorName: "Orchid Purple / Sunset Peach",
+    colors: ["#9b4f96", "#ff8c69", "#ffffff"],
+    desc: "Seamless engineered jacquard knit upper that hugs the foot like a bespoke sock, sitting atop a sculpted sunset gradient aero-foam platform.",
+    materials: "Jacquard fly-knit polyester, zoom nitrogen core, flex-groove rubber pods.",
+    images: [
+      "assets/hero_orchid.jpg",
+      "https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "hackney-trail",
+    name: "Hackney Rugged Trail",
+    category: "Trail",
+    gender: "Men",
+    price: 120,
+    originalPrice: null,
+    badge: "WEATHERPROOF",
+    rating: 4.7,
+    reviewsCount: 76,
+    colorName: "Cobalt Blue / Graphite",
+    colors: ["#1e3d59", "#333333", "#ff6e40"],
+    desc: "All-terrain technical trail runner equipped with a deep 5mm cleated lug sole, ripstop mudguards, and toggle cord quick-lacing.",
+    materials: "Ballistic nylon ripstop, TPU protective toe cap, high-traction Vibram-style lug rubber.",
+    images: [
+      "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "mayfair-monochrome",
+    name: "Mayfair Stealth Luxe",
+    category: "Court",
+    gender: "Men",
+    price: 135,
+    originalPrice: 170,
+    badge: "PREMIUM",
+    rating: 4.9,
+    reviewsCount: 164,
+    colorName: "Triple Matte Black",
+    colors: ["#09090b", "#1a1a1a", "#2c2c2c"],
+    desc: "Blacked-out luxury silhouette hand-crafted from oil-tanned calfskin with carbon fiber shank insert and tonal metal lace aglets.",
+    materials: "Full matte calf leather, carbon shank, shock-absorbing PU insole.",
+    images: [
+      "https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "carnaby-retro-high",
+    name: "Carnaby Retro 80s High",
+    category: "High-Top",
+    gender: "Unisex",
+    price: 115,
+    originalPrice: null,
+    badge: "RESTOCK",
+    rating: 4.6,
+    reviewsCount: 82,
+    colorName: "Royal Blue / Off-White",
+    colors: ["#003366", "#f4f4ee", "#ff3333"],
+    desc: "Vintage hardwood basketball heritage reimagined for London pavements. Padded high ankle collar with retro perforations and pivot-point sole.",
+    materials: "Heavyweight full-grain leather, padded mesh collar, stitched pivot cupsole.",
+    images: [
+      "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1575537302964-96cd47c06b1b?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "kings-cross-studio",
+    name: "Kings Cross Studio Trainer",
+    category: "Runners",
+    gender: "Unisex",
+    price: 99,
+    originalPrice: 120,
+    badge: "NEW",
+    rating: 4.7,
+    reviewsCount: 54,
+    colorName: "Sage Green / Warm Stone",
+    colors: ["#8f9779", "#d6d2c4", "#3a4031"],
+    desc: "Tonal earth-toned runner built with natural vegetable dyes and open mesh ventilation. Effortless styling for gym, studio, or cafe.",
+    materials: "Vegetable-dyed cotton canvas, recycled EVA midsole, gum tread.",
+    images: [
+      "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "bermondsey-skate",
+    name: "Bermondsey Chunky Skate",
+    category: "Terrace",
+    gender: "Unisex",
+    price: 92,
+    originalPrice: null,
+    badge: "90s RETRO",
+    rating: 4.8,
+    reviewsCount: 67,
+    colorName: "Wheat Suede / Black Sole",
+    colors: ["#d2b48c", "#09090b", "#ffffff"],
+    desc: "Oversized padded skate low-top featuring heavy-gauge double stitching, fat woven laces, and abrasion-resistant sidewall vulcanisation.",
+    materials: "Thick wheat suede, reinforced ollie patches, heavy rubber cupsole.",
+    images: [
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "greenwich-carbon",
+    name: "Greenwich Carbon Speed",
+    category: "Runners",
+    gender: "Men",
+    price: 140,
+    originalPrice: 180,
+    badge: "CARBON TECH",
+    rating: 5.0,
+    reviewsCount: 112,
+    colorName: "Silver Metallic / Cyber Yellow",
+    colors: ["#c0c0c0", "#ffff00", "#111111"],
+    desc: "Elite carbon-plated road racing shoe built to break PRs. Full-length curved carbon fiber propulsion plate sandwiched between PEBA superfoam.",
+    materials: "Micro-ripstop translucent upper, 100% full carbon plate, ultralight PEBA foam.",
+    images: [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=1000&q=80"
+    ]
+  },
+  {
+    id: "covent-chelsea",
+    name: "Covent Garden Chelsea Hybrid",
+    category: "High-Top",
+    gender: "Unisex",
+    price: 150,
+    originalPrice: null,
+    badge: "LUXURY",
+    rating: 4.8,
+    reviewsCount: 43,
+    colorName: "Polished Black Box Leather",
+    colors: ["#000000", "#1c1c1c", "#333333"],
+    desc: "Avant-garde fusion of traditional Chelsea pull-on boot elastic gussets and an athletic lugged sneaker sole. Weather-sealed for London winters.",
+    materials: "Box calf leather, elasticated side stretch panels, rugged lugged sneaker sole.",
+    images: [
+      "https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=1000&q=80"
+    ]
+  }
+];
+
+/* ==========================================================================
+   2. APPLICATION STATE
+   ========================================================================== */
+const SIZES = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+let currentCurrency = "GBP";
+const CURRENCY_RATES = { GBP: 1, EUR: 1.18, USD: 1.31 };
+const CURRENCY_SYMBOLS = { GBP: "£", EUR: "€", USD: "$" };
+
+function safeGetStorage(key, fallback) {
+  try {
+    const val = localStorage.getItem(key);
+    return val ? JSON.parse(val) : fallback;
+  } catch (e) {
+    return fallback;
+  }
+}
+
+function safeSetStorage(key, data) {
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch (e) {}
+}
+
+let cart = safeGetStorage("urbanza_cart", []);
+let wishlist = new Set(safeGetStorage("urbanza_wishlist", []));
+let activePromo = null;
+let currentPDPProduct = null;
+let selectedPDPSize = null;
+let currentPDPQty = 1;
+let currentPDPImageIndex = 0;
+
+/* Helper: Format currency */
+function formatPrice(amountInGBP) {
+  const rate = CURRENCY_RATES[currentCurrency] || 1;
+  const symbol = CURRENCY_SYMBOLS[currentCurrency] || "£";
+  const converted = Math.round(amountInGBP * rate);
+  return `${symbol}${converted}`;
+}
+
+/* Save Cart & Wishlist to localStorage */
+function persistState() {
+  safeSetStorage("urbanza_cart", cart);
+  safeSetStorage("urbanza_wishlist", [...wishlist]);
+}
+
+/* ==========================================================================
+   3. ROUTER & VIEW SWITCHING
+   ========================================================================== */
+function handleRouting() {
+  const hash = location.hash || "#/";
+
+  // Check for PDP route: #/p/:id
+  const pdpMatch = hash.match(/^#\/p\/([a-z0-9\-]+)$/);
+  if (pdpMatch) {
+    const prodId = pdpMatch[1];
+    const prod = PRODUCTS.find(p => p.id === prodId);
+    if (prod) {
+      openPDP(prod);
+      return;
+    }
+  }
+
+  // Close PDP if active
+  closePDP();
+
+  // Route Views
+  const route = hash.replace("#/", "").split("?")[0] || "home";
+  const views = {
+    "": "view-home",
+    "home": "view-home",
+    "shop": "view-shop",
+    "collections": "view-collections",
+    "lookbook": "view-lookbook",
+    "craft": "view-craft",
+    "stores": "view-stores",
+    "track-order": "view-track-order",
+    "about": "view-about"
+  };
+
+  const targetViewId = views[route] || "view-home";
+
+  document.querySelectorAll(".view-section").forEach(view => {
+    view.classList.remove("active");
+  });
+
+  const targetView = document.getElementById(targetViewId);
+  if (targetView) {
+    targetView.classList.add("active");
+  }
+
+  // Update navigation link states
+  document.querySelectorAll(".nav-link, #mobile-dock a").forEach(link => {
+    const linkRoute = link.dataset.route;
+    link.classList.toggle("active", linkRoute === route || (route === "" && linkRoute === "home"));
+  });
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // If entering shop with query parameters (e.g. ?cat=Runners)
+  if (hash.includes("?cat=")) {
+    const category = decodeURIComponent(hash.split("?cat=")[1]);
+    const catSelect = document.getElementById("filter-category");
+    if (catSelect) {
+      catSelect.value = category;
+      renderCatalogProducts();
+    }
+  }
+}
+
+window.addEventListener("hashchange", handleRouting);
+
+/* ==========================================================================
+   4. RENDERERS: PRODUCT CARDS & CATALOG
+   ========================================================================== */
+function createProductCardHTML(p) {
+  const wasPriceHTML = p.originalPrice ? `<span class="original-price">${formatPrice(p.originalPrice)}</span>` : "";
+  const isWish = wishlist.has(p.id);
+  const secondaryImg = (p.images && p.images[1]) ? p.images[1] : p.images[0];
+
+  return `
+    <article class="product-card" data-id="${p.id}" onclick="onCardClick(event, '${p.id}')">
+      <div class="product-image-container">
+        ${p.badge ? `<span class="product-tag">${p.badge}</span>` : ""}
+        <button class="product-wishlist-btn ${isWish ? 'active' : ''}" 
+                onclick="toggleWishlist(event, '${p.id}')" 
+                aria-label="Save to Wishlist" title="Save to Wishlist">
+          ${isWish ? '♥' : '♡'}
+        </button>
+
+        <img class="product-img-primary" src="${p.images[0]}" alt="${p.name}" loading="lazy" onerror="this.src='assets/hero_volt.jpg'">
+        <img class="product-img-secondary" src="${secondaryImg}" alt="${p.name} Alternate View" loading="lazy" onerror="this.style.display='none'">
+
+        <button class="quick-view-overlay-btn" onclick="openPDPById('${p.id}'); event.stopPropagation();">
+          Quick View
+        </button>
+      </div>
+
+      <div class="product-info">
+        <span class="product-category-label">${p.category} · ${p.gender}</span>
+        <h3 class="product-title">${p.name}</h3>
+
+        <div class="product-price-row">
+          <span class="current-price">${formatPrice(p.price)}</span>
+          ${wasPriceHTML}
+          <span class="product-rating">★ ${p.rating} <span>(${p.reviewsCount})</span></span>
+        </div>
+
+        <div class="card-quick-add" onclick="event.stopPropagation()">
+          <select class="quick-size-select" id="size-select-${p.id}" aria-label="Select size for ${p.name}">
+            <option value="" disabled selected>Size (UK)</option>
+            ${SIZES.map(s => `<option value="${s}">UK ${s}</option>`).join("")}
+          </select>
+          <button class="card-add-btn" onclick="quickAddToCart('${p.id}')">Add</button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function onCardClick(e, id) {
+  if (e.target.closest("select") || e.target.closest(".card-add-btn") || e.target.closest(".product-wishlist-btn")) return;
+  openPDPById(id);
+}
+
+function openPDPById(id) {
+  const prod = PRODUCTS.find(p => p.id === id);
+  if (prod) {
+    location.hash = `#/p/${id}`;
+    openPDP(prod);
+  }
+}
+
+function renderHomeProducts(categoryFilter = "All") {
+  const grid = document.getElementById("home-products-grid");
+  if (!grid) return;
+
+  const filtered = categoryFilter === "All" 
+    ? PRODUCTS.slice(0, 8) 
+    : PRODUCTS.filter(p => p.category === categoryFilter);
+
+  grid.innerHTML = filtered.map(createProductCardHTML).join("");
+}
+
+function renderCatalogProducts() {
+  const grid = document.getElementById("catalog-products-grid");
+  if (!grid) return;
+
+  const searchVal = (document.getElementById("shop-search-input")?.value || "").toLowerCase().trim();
+  const categoryVal = document.getElementById("filter-category")?.value || "All";
+  const genderVal = document.getElementById("filter-gender")?.value || "All";
+  const sizeVal = document.getElementById("filter-size")?.value || "All";
+  const sortVal = document.getElementById("filter-sort")?.value || "featured";
+
+  let list = PRODUCTS.filter(p => {
+    if (categoryVal !== "All" && p.category !== categoryVal) return false;
+    if (genderVal !== "All" && p.gender !== genderVal) return false;
+    if (searchVal) {
+      const match = p.name.toLowerCase().includes(searchVal) || 
+                    p.desc.toLowerCase().includes(searchVal) ||
+                    p.colorName.toLowerCase().includes(searchVal);
+      if (!match) return false;
+    }
+    return true;
+  });
+
+  // Sorting
+  if (sortVal === "price-low") list.sort((a,b) => a.price - b.price);
+  if (sortVal === "price-high") list.sort((a,b) => b.price - a.price);
+  if (sortVal === "rating") list.sort((a,b) => b.rating - a.rating);
+  if (sortVal === "name") list.sort((a,b) => a.name.localeCompare(b.name));
+
+  const countBadge = document.getElementById("catalog-count-badge");
+  if (countBadge) countBadge.textContent = `Showing ${list.length} styles`;
+
+  if (list.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+        <h3 style="font-size: 26px; margin-bottom: 8px;">No matching silhouettes found</h3>
+        <p style="color: var(--fg-muted); margin-bottom: 20px;">Try adjusting your search criteria or resetting filters.</p>
+        <button class="pill-btn secondary" onclick="resetFilters()">Reset All Filters</button>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = list.map(createProductCardHTML).join("");
+}
+
+function resetFilters() {
+  const search = document.getElementById("shop-search-input");
+  const cat = document.getElementById("filter-category");
+  const gen = document.getElementById("filter-gender");
+  const size = document.getElementById("filter-size");
+  const sort = document.getElementById("filter-sort");
+
+  if (search) search.value = "";
+  if (cat) cat.value = "All";
+  if (gen) gen.value = "All";
+  if (size) size.value = "All";
+  if (sort) sort.value = "featured";
+
+  renderCatalogProducts();
+}
+
+/* ==========================================================================
+   5. CART & BAG OPERATIONS
+   ========================================================================== */
+function quickAddToCart(productId) {
+  const select = document.getElementById(`size-select-${productId}`);
+  if (!select || !select.value) {
+    alert("Please select a UK size first!");
+    select.focus();
+    return;
+  }
+  const size = parseInt(select.value);
+  addToCart(productId, size, 1);
+}
+
+function addToCart(productId, size, quantity = 1) {
+  const existing = cart.find(item => item.id === productId && item.size === size);
+  if (existing) {
+    existing.qty += quantity;
+  } else {
+    cart.push({ id: productId, size, qty: quantity });
+  }
+
+  persistState();
+  updateCartUI();
+  openCartDrawer();
+
+  // Animation on cart badge
+  const badge = document.getElementById("bag-badge");
+  if (badge) {
+    gsap.fromTo(badge, { scale: 1.8 }, { scale: 1, duration: 0.4, ease: "back.out(2)" });
+  }
+}
+
+function updateCartQty(index, delta) {
+  if (!cart[index]) return;
+  cart[index].qty += delta;
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+  persistState();
+  updateCartUI();
+}
+
+function removeCartItem(index) {
+  cart.splice(index, 1);
+  persistState();
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+  const bagBadge = document.getElementById("bag-badge");
+  const countHeader = document.getElementById("cart-count-header");
+
+  if (bagBadge) bagBadge.textContent = totalItems;
+  if (countHeader) countHeader.textContent = totalItems;
+
+  const container = document.getElementById("cart-items-container");
+  if (!container) return;
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div style="text-align:center; padding:60px 20px; color:var(--fg-muted);">
+        <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin:0 auto 16px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <p style="font-size:16px; font-weight:700; color:var(--fg); margin-bottom:6px;">Your bag is empty</p>
+        <p style="font-size:13px; margin-bottom:20px;">Explore our Fresh Drops and claim your size before it sells out.</p>
+        <a class="pill-btn secondary" href="#/shop" onclick="closeCartDrawer()">Shop New Drops</a>
+      </div>
+    `;
+    document.getElementById("cart-subtotal-val").textContent = formatPrice(0);
+    document.getElementById("cart-grand-total").textContent = formatPrice(0);
+    document.getElementById("free-shipping-fill").style.width = "0%";
+    document.getElementById("free-shipping-amount").textContent = formatPrice(75) + " away";
+    return;
+  }
+
+  let subtotal = 0;
+  container.innerHTML = cart.map((item, index) => {
+    const prod = PRODUCTS.find(p => p.id === item.id) || PRODUCTS[0];
+    const lineTotal = prod.price * item.qty;
+    subtotal += lineTotal;
+
+    return `
+      <div class="cart-item-card">
+        <img src="${prod.images[0]}" alt="${prod.name}" onerror="this.src='assets/hero_volt.jpg'">
+        <div class="cart-item-details">
+          <h4>${prod.name}</h4>
+          <p>UK ${item.size} · ${prod.colorName}</p>
+          <div class="qty-stepper">
+            <button onclick="updateCartQty(${index}, -1)" aria-label="Decrease quantity">−</button>
+            <span>${item.qty}</span>
+            <button onclick="updateCartQty(${index}, 1)" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <b style="display:block; font-family:var(--font-display); font-size:16px;">${formatPrice(lineTotal)}</b>
+          <button style="color:var(--fg-muted); font-size:11px; margin-top:8px; text-decoration:underline;" onclick="removeCartItem(${index})">Remove</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  // Discounts
+  let discountAmount = 0;
+  if (activePromo === "LONDON10") {
+    discountAmount = Math.round(subtotal * 0.1);
+    document.getElementById("discount-row").style.display = "flex";
+    document.getElementById("cart-discount-val").textContent = `-${formatPrice(discountAmount)}`;
+  } else {
+    document.getElementById("discount-row").style.display = "none";
+  }
+
+  // Free shipping threshold £75
+  const freeThreshold = 75;
+  const fillPct = Math.min(100, Math.round((subtotal / freeThreshold) * 100));
+  const shippingFill = document.getElementById("free-shipping-fill");
+  const shippingAmount = document.getElementById("free-shipping-amount");
+  const shippingText = document.getElementById("free-shipping-text");
+  const shippingVal = document.getElementById("cart-shipping-val");
+
+  if (shippingFill) shippingFill.style.width = `${fillPct}%`;
+
+  let shippingCost = 0;
+  if (subtotal >= freeThreshold) {
+    if (shippingText) shippingText.textContent = "You've unlocked FREE UK Next-Day Delivery!";
+    if (shippingAmount) shippingAmount.textContent = "FREE";
+    if (shippingVal) shippingVal.textContent = "FREE";
+  } else {
+    shippingCost = 3.95;
+    const diff = freeThreshold - subtotal;
+    if (shippingText) shippingText.textContent = "Free UK shipping over £75";
+    if (shippingAmount) shippingAmount.textContent = `${formatPrice(diff)} away`;
+    if (shippingVal) shippingVal.textContent = formatPrice(shippingCost);
+  }
+
+  const grandTotal = Math.max(0, subtotal - discountAmount + (subtotal >= freeThreshold ? 0 : shippingCost));
+  document.getElementById("cart-subtotal-val").textContent = formatPrice(subtotal);
+  document.getElementById("cart-grand-total").textContent = formatPrice(grandTotal);
+}
+
+/* ==========================================================================
+   6. WISHLIST OPERATIONS
+   ========================================================================== */
+function toggleWishlist(e, productId) {
+  if (e) e.stopPropagation();
+  if (wishlist.has(productId)) {
+    wishlist.delete(productId);
+  } else {
+    wishlist.add(productId);
+  }
+  persistState();
+  updateWishlistUI();
+  renderHomeProducts();
+  renderCatalogProducts();
+}
+
+function updateWishlistUI() {
+  const count = wishlist.size;
+  const badge = document.getElementById("wishlist-badge");
+  const header = document.getElementById("wishlist-count-header");
+  if (badge) badge.textContent = count;
+  if (header) header.textContent = count;
+
+  const container = document.getElementById("wishlist-items-container");
+  if (!container) return;
+
+  if (wishlist.size === 0) {
+    container.innerHTML = `
+      <div style="text-align:center; padding:60px 20px; color:var(--fg-muted);">
+        <p style="font-size:16px; font-weight:700; color:var(--fg); margin-bottom:6px;">No saved silhouettes</p>
+        <p style="font-size:13px; margin-bottom:20px;">Tap the heart icon on any sneaker to save it to your wishlist.</p>
+        <a class="pill-btn secondary" href="#/shop" onclick="closeWishlistDrawer()">Explore Archive</a>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = [...wishlist].map(id => {
+    const prod = PRODUCTS.find(p => p.id === id);
+    if (!prod) return "";
+    return `
+      <div class="cart-item-card">
+        <img src="${prod.images[0]}" alt="${prod.name}" onerror="this.src='assets/hero_volt.jpg'">
+        <div class="cart-item-details">
+          <h4>${prod.name}</h4>
+          <p>${prod.colorName}</p>
+          <b style="font-family:var(--font-display);">${formatPrice(prod.price)}</b>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <button class="pill-btn" style="padding:6px 12px; font-size:11px;" onclick="location.hash='#/p/${prod.id}'; closeWishlistDrawer();">View</button>
+          <button style="color:var(--fg-muted); font-size:11px;" onclick="toggleWishlist(null, '${prod.id}')">Remove</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+/* ==========================================================================
+   7. PRODUCT DETAIL OVERLAY (PDP)
+   ========================================================================== */
+function openPDP(prod) {
+  if (!prod) return;
+  currentPDPProduct = prod;
+  selectedPDPSize = null;
+  currentPDPQty = 1;
+  currentPDPImageIndex = 0;
+
+  const crumbTitle = document.getElementById("pdp-crumb-title");
+  if (crumbTitle) crumbTitle.textContent = prod.name;
+  const title = document.getElementById("pdp-title");
+  if (title) title.textContent = prod.name;
+  const price = document.getElementById("pdp-price");
+  if (price) price.textContent = formatPrice(prod.price);
+  
+  const wasElem = document.getElementById("pdp-was-price");
+  if (wasElem) {
+    if (prod.originalPrice) {
+      wasElem.style.display = "inline";
+      wasElem.textContent = formatPrice(prod.originalPrice);
+    } else {
+      wasElem.style.display = "none";
+    }
+  }
+
+  const ratingElem = document.getElementById("pdp-rating");
+  if (ratingElem) {
+    ratingElem.innerHTML = `★★★★★ ${prod.rating} <span>(${prod.reviewsCount} reviews)</span>`;
+  }
+  const descElem = document.getElementById("pdp-desc");
+  if (descElem) descElem.textContent = prod.desc;
+  const colorNameElem = document.getElementById("pdp-color-name");
+  if (colorNameElem) colorNameElem.textContent = prod.colorName;
+  const badgeElem = document.getElementById("pdp-badge");
+  if (badgeElem) badgeElem.textContent = prod.badge || "IN STOCK";
+  const matElem = document.getElementById("pdp-accordion-materials");
+  if (matElem) matElem.textContent = prod.materials;
+
+  // Thumbnails & main image
+  updatePDPGallery();
+
+  // Colorway Swatches
+  const colorDots = document.getElementById("pdp-color-dots");
+  if (colorDots) {
+    colorDots.innerHTML = prod.colors.map((c, i) => `
+      <button class="${i === 0 ? 'active' : ''}" style="--dot-color: ${c}" title="${prod.colorName}" onclick="selectPDPColor(${i})"></button>
+    `).join("");
+  }
+
+  // Size Grid
+  const sizeGrid = document.getElementById("pdp-size-grid");
+  if (sizeGrid) {
+    sizeGrid.innerHTML = SIZES.map(s => {
+      const isAvailable = (s * 7 + prod.price) % 13 !== 0;
+      return `
+        <button class="size-pill-btn" data-size="${s}" ${!isAvailable ? 'disabled style="opacity:0.35; text-decoration:line-through;"' : ''} onclick="selectPDPSize(${s})">
+          UK ${s}
+          <small>EU ${s + 34}</small>
+        </button>
+      `;
+    }).join("");
+  }
+
+  // Wishlist heart
+  const wishBtn = document.getElementById("pdp-wishlist-btn");
+  if (wishBtn) {
+    wishBtn.textContent = wishlist.has(prod.id) ? "♥" : "♡";
+    wishBtn.style.color = wishlist.has(prod.id) ? "#ff334b" : "var(--fg)";
+    wishBtn.onclick = () => {
+      toggleWishlist(null, prod.id);
+      wishBtn.textContent = wishlist.has(prod.id) ? "♥" : "♡";
+      wishBtn.style.color = wishlist.has(prod.id) ? "#ff334b" : "var(--fg)";
+    };
+  }
+
+  const stockAlert = document.getElementById("pdp-stock-alert");
+  if (stockAlert) {
+    stockAlert.textContent = "Select your UK size to check live London warehouse stock.";
+    stockAlert.style.color = "var(--fg-muted)";
+  }
+
+  // Open view
+  const pdpView = document.getElementById("pdp-view");
+  if (pdpView) pdpView.classList.add("active");
+  document.body.style.overflow = "hidden";
+  document.title = `${prod.name} | URBANZA London`;
+}
+
+function updatePDPGallery() {
+  const prod = currentPDPProduct;
+  if (!prod) return;
+
+  const mainImg = document.getElementById("pdp-main-img");
+  if (mainImg) {
+    mainImg.src = prod.images[currentPDPImageIndex] || prod.images[0];
+  }
+
+  const thumbs = document.getElementById("pdp-thumbnails") || document.getElementById("pdp-thumbs");
+  if (thumbs) {
+    thumbs.innerHTML = prod.images.map((img, i) => `
+      <button class="pdp-thumb-btn ${i === currentPDPImageIndex ? 'active' : ''}" onclick="setPDPImageIndex(${i})" aria-label="View sneaker photo ${i+1}">
+        <img src="${img}" alt="${prod.name} angle ${i+1}" onerror="this.src='assets/hero_volt.jpg'">
+      </button>
+    `).join("");
+  }
+}
+
+function setPDPImageIndex(index) {
+  currentPDPImageIndex = index;
+  const prod = currentPDPProduct;
+  if (!prod) return;
+
+  const mainImg = document.getElementById("pdp-main-img");
+  if (mainImg) {
+    mainImg.style.transition = "transform 0.25s ease, opacity 0.25s ease";
+    mainImg.style.opacity = "0.35";
+    mainImg.style.transform = "scale(0.95)";
+    setTimeout(() => {
+      mainImg.src = prod.images[index] || prod.images[0];
+      mainImg.style.opacity = "1";
+      mainImg.style.transform = "scale(1)";
+    }, 120);
+  }
+
+  const thumbs = document.getElementById("pdp-thumbnails") || document.getElementById("pdp-thumbs");
+  if (thumbs) {
+    thumbs.querySelectorAll(".pdp-thumb-btn").forEach((btn, idx) => {
+      btn.classList.toggle("active", idx === index);
+    });
+  }
+}
+
+function selectPDPColor(idx) {
+  document.querySelectorAll("#pdp-color-dots button").forEach((b, i) => {
+    b.classList.toggle("active", i === idx);
+  });
+  if (currentPDPProduct && currentPDPProduct.images[idx]) {
+    setPDPImageIndex(idx);
+  }
+}
+
+function selectPDPSize(size) {
+  selectedPDPSize = size;
+  document.querySelectorAll(".size-pill-btn").forEach(btn => {
+    btn.classList.toggle("active", parseInt(btn.dataset.size) === size);
+  });
+
+  const alertElem = document.getElementById("pdp-stock-alert");
+  if (!alertElem) return;
+  const randomStock = ((size * 3 + 7) % 5) + 1;
+  if (randomStock <= 2) {
+    alertElem.textContent = `⚡ Low Stock: Only ${randomStock} pairs left in UK ${size}. Ready to dispatch.`;
+    alertElem.style.color = "#ff453a";
+  } else {
+    alertElem.textContent = `✓ In Stock: Ready for Next-Day UK dispatch in UK ${size}.`;
+    alertElem.style.color = "var(--ac)";
+  }
+}
+
+function closePDP() {
+  const pdpView = document.getElementById("pdp-view");
+  if (pdpView) pdpView.classList.remove("active");
+  document.body.style.overflow = "";
+  if (location.hash.startsWith("#/p/")) {
+    location.hash = "#/";
+  }
+  document.title = "URBANZA | London Luxury Streetwear Footwear";
+}
+
+/* ==========================================================================
+   8. HERO 3D TILT PHYSICS & COLORWAYS
+   ========================================================================== */
+const HERO_COLORWAYS = [
+  { img: "assets/hero_volt.jpg", glow: "rgba(198, 255, 0, 0.45)", name: "Volt Velocity" },
+  { img: "assets/hero_burgundy.jpg", glow: "rgba(122, 31, 46, 0.45)", name: "Terrace Burgundy" },
+  { img: "assets/hero_white.jpg", glow: "rgba(255, 255, 255, 0.35)", name: "Aura Court White" },
+  { img: "assets/hero_orchid.jpg", glow: "rgba(208, 75, 208, 0.45)", name: "Sunset Orchid" }
+];
+
+let heroState = {
+  currentRx: 0,
+  currentRy: 0,
+  targetRx: 0,
+  targetRy: 0,
+  isDragging: false,
+  dragStartX: 0,
+  dragStartY: 0,
+  baseRy: 0,
+  baseRx: 0,
+  floatTime: 0
+};
+
+function initHeroPhysics() {
+  const stage = document.getElementById("hero-stage");
+  const tiltElem = document.getElementById("hero-tilt");
+  const heroImg = document.getElementById("hero-img");
+  const heroGlow = document.getElementById("hero-glow");
+  if (!stage || !tiltElem) return;
+
+  // Prevent default image drag
+  if (heroImg) {
+    heroImg.addEventListener("dragstart", e => e.preventDefault());
+  }
+
+  // Pointer down (start 3D drag)
+  stage.addEventListener("pointerdown", e => {
+    if (e.target.closest(".hotspot")) return;
+    heroState.isDragging = true;
+    heroState.dragStartX = e.clientX;
+    heroState.dragStartY = e.clientY;
+    heroState.baseRy = heroState.currentRy;
+    heroState.baseRx = heroState.currentRx;
+    try { stage.setPointerCapture(e.pointerId); } catch(err) {}
+    stage.style.cursor = "grabbing";
+    e.preventDefault();
+  });
+
+  // Pointer move (dragging or hover mouse parallax)
+  window.addEventListener("pointermove", e => {
+    if (heroState.isDragging) {
+      const dx = (e.clientX - heroState.dragStartX) * 0.55;
+      const dy = (e.clientY - heroState.dragStartY) * 0.4;
+      heroState.targetRy = heroState.baseRy + dx;
+      heroState.targetRx = Math.max(-42, Math.min(42, heroState.baseRx - dy));
+    } else {
+      const rect = stage.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const normX = (e.clientX - centerX) / (window.innerWidth * 0.5);
+      const normY = (e.clientY - centerY) / (window.innerHeight * 0.5);
+
+      heroState.targetRy = Math.max(-36, Math.min(36, normX * 30));
+      heroState.targetRx = Math.max(-24, Math.min(24, -normY * 18));
+      heroState.baseRy = heroState.targetRy;
+      heroState.baseRx = heroState.targetRx;
+    }
+  });
+
+  // Pointer up & pointer cancel
+  const endHeroDrag = e => {
+    if (heroState.isDragging) {
+      heroState.isDragging = false;
+      stage.style.cursor = "grab";
+      if (e && e.pointerId) {
+        try { stage.releasePointerCapture(e.pointerId); } catch(err) {}
+      }
+    }
+  };
+
+  window.addEventListener("pointerup", endHeroDrag);
+  window.addEventListener("pointercancel", endHeroDrag);
+
+  // Hotspots stop pointerdown propagation
+  document.querySelectorAll(".hotspot").forEach(h => {
+    h.addEventListener("pointerdown", e => e.stopPropagation());
+  });
+
+  // Smooth RAF Animation Loop
+  function animateHeroTilt() {
+    heroState.floatTime += 0.024;
+    heroState.currentRx += (heroState.targetRx - heroState.currentRx) * 0.09;
+    heroState.currentRy += (heroState.targetRy - heroState.currentRy) * 0.09;
+
+    const floatY = Math.sin(heroState.floatTime) * 12;
+    const floatRoll = Math.cos(heroState.floatTime * 0.8) * 1.5;
+
+    tiltElem.style.transform = `perspective(1000px) rotateY(${heroState.currentRy}deg) rotateX(${heroState.currentRx}deg) rotateZ(${floatRoll}deg) translateY(${floatY}px)`;
+
+    if (heroGlow) {
+      const glowShiftX = -heroState.currentRy * 2.5;
+      heroGlow.style.transform = `translateX(calc(-50% + ${glowShiftX}px)) scale(${1 + Math.abs(heroState.currentRx) * 0.01})`;
+    }
+
+    requestAnimationFrame(animateHeroTilt);
+  }
+  requestAnimationFrame(animateHeroTilt);
+
+  // Hero colorway switcher buttons
+  document.querySelectorAll(".color-dots button[data-hero]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".color-dots button[data-hero]").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const idx = parseInt(btn.dataset.hero);
+      const colorway = HERO_COLORWAYS[idx];
+      const img = document.getElementById("hero-img");
+      const glow = document.getElementById("hero-glow");
+
+      if (img && colorway) {
+        img.src = colorway.img;
+        if (glow) {
+          glow.style.background = `radial-gradient(closest-side, ${colorway.glow}, transparent)`;
+        }
+        if (window.gsap) {
+          gsap.fromTo(img, 
+            { scale: 0.86, rotate: -7, opacity: 0.35 }, 
+            { scale: 1, rotate: 0, opacity: 1, duration: 0.65, ease: "power3.out" }
+          );
+        } else {
+          img.style.transition = "transform 0.4s ease, opacity 0.4s ease";
+          img.style.transform = "scale(0.9)";
+          setTimeout(() => { img.style.transform = "scale(1)"; }, 40);
+        }
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   9. CHECKOUT & CONFIRMATION FLOW
+   ========================================================================== */
+function openCheckout() {
+  if (cart.length === 0) {
+    alert("Your shopping bag is empty!");
+    return;
+  }
+  closeCartDrawer();
+  const subtotal = cart.reduce((acc, l) => {
+    const prod = PRODUCTS.find(p => p.id === l.id);
+    return acc + (prod ? prod.price * l.qty : 0);
+  }, 0);
+
+  const discount = activePromo === "LONDON10" ? Math.round(subtotal * 0.1) : 0;
+  const isFree = subtotal >= 75;
+  const delivery = isFree ? 0 : 3.95;
+  const total = Math.max(0, subtotal - discount + delivery);
+
+  document.getElementById("checkout-items-total").textContent = formatPrice(subtotal);
+  document.getElementById("checkout-shipping-total").textContent = isFree ? "FREE" : formatPrice(delivery);
+  document.getElementById("checkout-grand-total").textContent = formatPrice(total);
+
+  document.getElementById("checkout-modal").classList.add("open");
+}
+
+function completeCheckout() {
+  document.getElementById("checkout-modal").classList.remove("open");
+  
+  // Clear cart
+  cart = [];
+  persistState();
+  updateCartUI();
+
+  // Launch celebration confetti
+  if (window.confetti) {
+    confetti({
+      particleCount: 120,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#c6ff00', '#ffffff', '#7a1f2e']
+    });
+  }
+
+  const randomRef = "UBZ-2026-" + Math.floor(1000 + Math.random() * 9000);
+  document.getElementById("confirmed-ref").textContent = randomRef;
+  document.getElementById("order-confirmed-modal").classList.add("open");
+}
+
+function closeOrderModal() {
+  document.getElementById("order-confirmed-modal").classList.remove("open");
+}
+
+function goToTrackingFromOrder() {
+  const ref = document.getElementById("confirmed-ref").textContent;
+  closeOrderModal();
+  location.hash = "#/track-order";
+  const input = document.getElementById("track-order-input");
+  if (input) input.value = ref;
+  simulateTrackingLookup();
+}
+
+function simulateTrackingLookup() {
+  const input = document.getElementById("track-order-input");
+  const label = document.getElementById("track-ref-label");
+  if (input && label) label.textContent = input.value || "UBZ-2026-9842";
+  alert("Live tracking updated: Courier van is en route with your drop!");
+}
+
+/* Size Guide Modal */
+function openSizeGuide() {
+  document.getElementById("size-guide-modal").classList.add("open");
+}
+
+/* ==========================================================================
+   10. GLOBAL SEARCH & FILTERING
+   ========================================================================== */
+function openSearchModal() {
+  document.getElementById("search-modal").classList.add("open");
+  const input = document.getElementById("global-search-input");
+  if (input) {
+    input.value = "";
+    input.focus();
+    renderSearchResults("");
+  }
+}
+
+function closeSearchModal() {
+  document.getElementById("search-modal").classList.remove("open");
+}
+
+function searchFor(term) {
+  const input = document.getElementById("global-search-input");
+  if (input) {
+    input.value = term;
+    renderSearchResults(term);
+  }
+}
+
+function renderSearchResults(query) {
+  const list = document.getElementById("search-results-list");
+  if (!list) return;
+
+  const q = query.toLowerCase().trim();
+  const results = q ? PRODUCTS.filter(p => 
+    p.name.toLowerCase().includes(q) || 
+    p.category.toLowerCase().includes(q) || 
+    p.colorName.toLowerCase().includes(q)
+  ) : PRODUCTS.slice(0, 5);
+
+  if (results.length === 0) {
+    list.innerHTML = `<p style="text-align:center; padding:20px; color:var(--fg-muted);">No results found for "${query}"</p>`;
+    return;
+  }
+
+  list.innerHTML = results.map(p => `
+    <div class="cart-item-card" onclick="closeSearchModal(); location.hash='#/p/${p.id}';" style="cursor:pointer;">
+      <img src="${p.images[0]}" alt="${p.name}" onerror="this.src='assets/hero_volt.jpg'">
+      <div class="cart-item-details">
+        <h4>${p.name}</h4>
+        <p>${p.category} · ${p.colorName}</p>
+      </div>
+      <div>
+        <b style="font-family:var(--font-display);">${formatPrice(p.price)}</b>
+      </div>
+    </div>
+  `).join("");
+}
+
+/* ==========================================================================
+   11. DRAWER CONTROLS
+   ========================================================================== */
+function openCartDrawer() {
+  document.getElementById("cart-drawer").classList.add("open");
+  document.getElementById("drawer-backdrop").classList.add("open");
+}
+
+function closeCartDrawer() {
+  document.getElementById("cart-drawer").classList.remove("open");
+  document.getElementById("drawer-backdrop").classList.remove("open");
+}
+
+function openWishlistDrawer() {
+  document.getElementById("wishlist-drawer").classList.add("open");
+  document.getElementById("drawer-backdrop").classList.add("open");
+}
+
+function closeWishlistDrawer() {
+  document.getElementById("wishlist-drawer").classList.remove("open");
+  document.getElementById("drawer-backdrop").classList.remove("open");
+}
+
+function openMobileNav() {
+  document.getElementById("mobile-nav-drawer").classList.add("open");
+  document.getElementById("drawer-backdrop").classList.add("open");
+}
+
+function closeMobileNav() {
+  document.getElementById("mobile-nav-drawer").classList.remove("open");
+  document.getElementById("drawer-backdrop").classList.remove("open");
+}
+
+/* ==========================================================================
+   12. EVENT LISTENERS & LIFECYCLE INITIALIZATION
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  // Preloader counter animation
+  const preloaderNum = document.getElementById("preloader-num");
+  let loadPct = 0;
+  const loadInterval = setInterval(() => {
+    loadPct += Math.floor(Math.random() * 25) + 15;
+    if (loadPct >= 100) {
+      loadPct = 100;
+      clearInterval(loadInterval);
+      if (preloaderNum) preloaderNum.textContent = "100%";
+      setTimeout(() => {
+        document.getElementById("preloader").classList.add("done");
+      }, 300);
+    } else {
+      if (preloaderNum) preloaderNum.textContent = `${loadPct}%`;
+    }
+  }, 60);
+
+  // Initial routing
+  handleRouting();
+
+  // Render products
+  renderHomeProducts();
+  renderCatalogProducts();
+  updateCartUI();
+  updateWishlistUI();
+  initHeroPhysics();
+
+  // Scroll Progress Bar
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
+    const pBar = document.getElementById("progress-bar");
+    if (pBar) pBar.style.transform = `scaleX(${progress})`;
+
+    // Nav hide on scroll down
+    const nav = document.getElementById("main-nav");
+    if (nav && scrollY > 150) {
+      if (scrollY > (window.lastScrollY || 0)) {
+        nav.classList.add("hidden");
+      } else {
+        nav.classList.remove("hidden");
+      }
+    }
+    window.lastScrollY = scrollY;
+  }, { passive: true });
+
+  // Custom Cursor
+  const cursor = document.getElementById("cursor");
+  if (cursor) {
+    window.addEventListener("pointermove", e => {
+      cursor.style.transform = `translate3d(${e.clientX - 8}px, ${e.clientY - 8}px, 0)`;
+      const targetLabel = e.target.closest("[data-cursor]")?.dataset.cursor;
+      cursor.setAttribute("data-label", targetLabel || "");
+      cursor.classList.toggle("big", !!targetLabel || !!e.target.closest("button, a"));
+    });
+  }
+
+  // Currency Switcher
+  const currSelect = document.getElementById("currency-select");
+  if (currSelect) {
+    currSelect.addEventListener("change", e => {
+      currentCurrency = e.target.value;
+      renderHomeProducts();
+      renderCatalogProducts();
+      updateCartUI();
+      if (currentPDPProduct) {
+        document.getElementById("pdp-price").textContent = formatPrice(currentPDPProduct.price);
+      }
+    });
+  }
+
+  // Theme Toggle
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
+    });
+  }
+
+  // Drawer Triggers
+  document.getElementById("bag-trigger")?.addEventListener("click", openCartDrawer);
+  document.getElementById("close-cart-btn")?.addEventListener("click", closeCartDrawer);
+  document.getElementById("mobile-bag-btn")?.addEventListener("click", openCartDrawer);
+
+  document.getElementById("wishlist-trigger")?.addEventListener("click", openWishlistDrawer);
+  document.getElementById("close-wishlist-btn")?.addEventListener("click", closeWishlistDrawer);
+  document.getElementById("mobile-wishlist-btn")?.addEventListener("click", openWishlistDrawer);
+
+  document.getElementById("mobile-menu-btn")?.addEventListener("click", openMobileNav);
+  document.getElementById("close-mobile-nav-btn")?.addEventListener("click", closeMobileNav);
+  document.querySelectorAll(".mobile-nav-link").forEach(l => l.addEventListener("click", closeMobileNav));
+
+  document.getElementById("drawer-backdrop")?.addEventListener("click", () => {
+    closeCartDrawer();
+    closeWishlistDrawer();
+    closeMobileNav();
+  });
+
+  // Search Triggers & Hotkey (Ctrl+K)
+  document.getElementById("search-trigger")?.addEventListener("click", openSearchModal);
+  document.getElementById("mobile-search-btn")?.addEventListener("click", openSearchModal);
+  document.getElementById("close-search-modal-btn")?.addEventListener("click", closeSearchModal);
+
+  document.getElementById("global-search-input")?.addEventListener("input", e => {
+    renderSearchResults(e.target.value);
+  });
+
+  window.addEventListener("keydown", e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+      e.preventDefault();
+      openSearchModal();
+    }
+    if (e.key === "Escape") {
+      closeSearchModal();
+      closeCartDrawer();
+      closeWishlistDrawer();
+      document.getElementById("checkout-modal")?.classList.remove("open");
+      document.getElementById("size-guide-modal")?.classList.remove("open");
+      document.getElementById("order-confirmed-modal")?.classList.remove("open");
+      if (document.getElementById("pdp-view")?.classList.contains("active")) {
+        history.back();
+      }
+    }
+  });
+
+  // Category Tabs on Home
+  document.querySelectorAll("#home-category-tabs .tab-pill").forEach(tab => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll("#home-category-tabs .tab-pill").forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      renderHomeProducts(tab.dataset.cat);
+    });
+  });
+
+  // Filters on Catalog
+  document.getElementById("shop-search-input")?.addEventListener("input", renderCatalogProducts);
+  document.getElementById("filter-category")?.addEventListener("change", renderCatalogProducts);
+  document.getElementById("filter-gender")?.addEventListener("change", renderCatalogProducts);
+  document.getElementById("filter-size")?.addEventListener("change", renderCatalogProducts);
+  document.getElementById("filter-sort")?.addEventListener("change", renderCatalogProducts);
+  document.getElementById("reset-filters-btn")?.addEventListener("click", resetFilters);
+
+  // Promo Code
+  document.getElementById("apply-promo-btn")?.addEventListener("click", () => {
+    const val = (document.getElementById("promo-code-input")?.value || "").toUpperCase().trim();
+    if (val === "LONDON10") {
+      activePromo = "LONDON10";
+      alert("Promo code applied! 10% discount deducted.");
+      updateCartUI();
+    } else {
+      alert("Invalid code. Try LONDON10 for 10% off.");
+    }
+  });
+
+  // PDP Handlers
+  document.getElementById("pdp-back-btn")?.addEventListener("click", closePDP);
+  document.getElementById("pdp-close-btn")?.addEventListener("click", closePDP);
+
+  document.getElementById("pdp-qty-minus")?.addEventListener("click", () => {
+    currentPDPQty = Math.max(1, currentPDPQty - 1);
+    document.getElementById("pdp-qty-val").textContent = currentPDPQty;
+  });
+
+  document.getElementById("pdp-qty-plus")?.addEventListener("click", () => {
+    currentPDPQty = Math.min(5, currentPDPQty + 1);
+    document.getElementById("pdp-qty-val").textContent = currentPDPQty;
+  });
+
+  document.getElementById("pdp-add-cart-btn")?.addEventListener("click", () => {
+    if (!selectedPDPSize) {
+      alert("Please choose a UK size before adding to bag!");
+      const grid = document.getElementById("pdp-size-grid");
+      if (grid) {
+        gsap.fromTo(grid, { x: -8 }, { x: 8, repeat: 4, yoyo: true, duration: 0.06, onComplete: () => gsap.set(grid, { x: 0 }) });
+      }
+      return;
+    }
+    addToCart(currentPDPProduct.id, selectedPDPSize, currentPDPQty);
+  });
+
+  document.getElementById("open-size-guide-btn")?.addEventListener("click", openSizeGuide);
+  document.getElementById("close-size-guide-btn")?.addEventListener("click", () => {
+    document.getElementById("size-guide-modal").classList.remove("open");
+  });
+
+  // Checkout Triggers
+  document.getElementById("checkout-now-btn")?.addEventListener("click", openCheckout);
+  document.getElementById("close-checkout-modal-btn")?.addEventListener("click", () => {
+    document.getElementById("checkout-modal").classList.remove("open");
+  });
+
+  // Newsletter Submit
+  document.getElementById("newsletter-form")?.addEventListener("submit", e => {
+    e.preventDefault();
+    document.getElementById("newsletter-form").style.display = "none";
+    const ok = document.getElementById("newsletter-success");
+    ok.style.display = "flex";
+    if (window.confetti) {
+      confetti({ particleCount: 60, spread: 50, origin: { y: 0.8 } });
+    }
+  });
+
+  // Craft Layer Tabs
+  document.querySelectorAll(".craft-step-card").forEach((card, idx) => {
+    card.addEventListener("click", () => {
+      document.querySelectorAll(".craft-step-card").forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+      const craftImg = document.getElementById("craft-interactive-img");
+      if (craftImg) {
+        gsap.fromTo(craftImg, { scale: 0.94, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.4 });
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
